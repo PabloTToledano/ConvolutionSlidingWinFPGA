@@ -1,0 +1,38 @@
+#-----------------------------------------------------------
+# xsim v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Mon Dec 14 16:33:48 2020
+# Process ID: 8464
+# Current directory: C:/Users/pablo/Documents/Empotrados/VivadoHLS/Convolucion/solution1/sim/verilog
+# Command line: xsim.exe -mode tcl -source {xsim.dir/img_filter/xsim_script.tcl}
+# Log file: C:/Users/pablo/Documents/Empotrados/VivadoHLS/Convolucion/solution1/sim/verilog/xsim.log
+# Journal file: C:/Users/pablo/Documents/Empotrados/VivadoHLS/Convolucion/solution1/sim/verilog\xsim.jou
+#-----------------------------------------------------------
+source xsim.dir/img_filter/xsim_script.tcl
+# xsim {img_filter} -autoloadwcfg -tclbatch {img_filter.tcl}
+Vivado Simulator 2018.3
+Time resolution is 1 ps
+source img_filter.tcl
+## run all
+////////////////////////////////////////////////////////////////////////////////////
+// Inter-Transaction Progress: Completed Transaction / Total Transaction
+// Intra-Transaction Progress: Measured Latency / Latency Estimation * 100%
+//
+// RTL Simulation : "Inter-Transaction Progress" ["Intra-Transaction Progress"] @ "Simulation Time"
+////////////////////////////////////////////////////////////////////////////////////
+// RTL Simulation : 0 / 1 [0.00%] @ "125000"
+// RTL Simulation : 0 / 1 [67.81%] @ "100000145000"
+// RTL Simulation : 0 / 1 [135.61%] @ "200000155000"
+// RTL Simulation : 0 / 1 [203.42%] @ "300000165000"
+// RTL Simulation : 0 / 1 [271.23%] @ "400000175000"
+// RTL Simulation : 0 / 1 [339.03%] @ "500000185000"
+// RTL Simulation : 0 / 1 [406.84%] @ "600000195000"
+// RTL Simulation : 0 / 1 [474.65%] @ "700000205000"
+// RTL Simulation : 0 / 1 [542.45%] @ "800000215000"
+// RTL Simulation : 0 / 1 [610.26%] @ "900000225000"
+// RTL Simulation : 0 / 1 [678.06%] @ "1000000235000"
+// RTL Simulation : 0 / 1 [745.87%] @ "1100000245000"
+// RTL Simulation : 0 / 1 [813.68%] @ "1200000255000"
+// RTL Simulation : 0 / 1 [881.48%] @ "1300000265000"
+// RTL Simulation : 0 / 1 [949.29%] @ "1400000275000"

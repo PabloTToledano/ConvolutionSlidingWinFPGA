@@ -1,0 +1,26 @@
+{"sourceFile": [{
+      "name": "",
+      "directive": [{
+          "functionName": "img_filter",
+          "label": "",
+          "functionLabel": "",
+          "pragma": {
+            "name": "STREAM",
+            "option": [
+              {
+                "name": "variable",
+                "value": "line_buffer",
+                "positionalBoolean": "4"
+              },
+              {
+                "name": "depth",
+                "value": "480"
+              },
+              {
+                "name": "dim",
+                "value": "1"
+              }
+            ]
+          }
+        }]
+    }]}

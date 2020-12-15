@@ -1,0 +1,4 @@
+Running: xsim.dir/img_filter/xsimk.exe -simmode gui -wdb img_filter.wdb -simrunnum 0 -socket 64420
+Design successfully loaded
+Design Loading Memory Usage: 11532 KB (Peak: 11532 KB)
+Design Loading CPU Usage: 77 ms
