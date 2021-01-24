@@ -1,5 +1,5 @@
 # ConvolutionSlidingWinFPGA
-Sistemas empotrados' project
+Sistemas empotrados' project. First attempt at working with a FPGA.
 
 Convolutional implementation of sliding window algorithm for Ultra96 Xiling FPGA
 
