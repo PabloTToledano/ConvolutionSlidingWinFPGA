@@ -33,8 +33,8 @@ INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/pablo/Documents/Empo
 INFO: [VRFC 10-311] analyzing module AESL_autofifo_out_V_strb_V
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/pablo/Documents/Empotrados/VivadoHLS/Convolucion/solution1/sim/verilog/AESL_autofifo_out_V_user_V.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module AESL_autofifo_out_V_user_V
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/pablo/Documents/Empotrados/VivadoHLS/Convolucion/solution1/sim/verilog/fifo_w8_d480_A.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module fifo_w8_d480_A
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/pablo/Documents/Empotrados/VivadoHLS/Convolucion/solution1/sim/verilog/fifo_w8_d640_A.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fifo_w8_d640_A
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/pablo/Documents/Empotrados/VivadoHLS/Convolucion/solution1/sim/verilog/img_filter.autotb.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module apatb_img_filter_top
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/pablo/Documents/Empotrados/VivadoHLS/Convolucion/solution1/sim/verilog/img_filter.v" into library xil_defaultlib
@@ -64,7 +64,7 @@ Compiling module xil_defaultlib.img_filter_am_addcud_DSP48_0
 Compiling module xil_defaultlib.img_filter_am_addcud(ID=1,NUM_ST...
 Compiling module xil_defaultlib.img_filter_mac_mudEe_DSP48_1
 Compiling module xil_defaultlib.img_filter_mac_mudEe(ID=1,NUM_ST...
-Compiling module xil_defaultlib.fifo_w8_d480_A
+Compiling module xil_defaultlib.fifo_w8_d640_A
 Compiling module xil_defaultlib.img_filter
 Compiling module xil_defaultlib.AESL_autofifo_in_V_data_V
 Compiling module xil_defaultlib.AESL_autofifo_in_V_keep_V

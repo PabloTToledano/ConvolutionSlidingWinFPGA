@@ -1,12 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <AutoPilot:ProjectResources xmlns:AutoPilot="com.autoesl.autopilot.ui.directiveView">
-  <sourceFile>
-    <directive functionName="img_filter" label="" functionLabel="">
-      <pragma name="STREAM">
-        <option name="variable" value="line_buffer" positionalBoolean="4"/>
-        <option name="depth" value="480"/>
-        <option name="dim" value="2"/>
-      </pragma>
-    </directive>
-  </sourceFile>
+    <sourceFile name="">
+        <directive functionName="img_filter" label="" functionLabel="">
+            <pragma name="STREAM">
+                <option name="variable" value="line_buffer" positionalBoolean="4"/>
+                <option name="depth" value="640"/>
+                <option name="dim" value="2"/>
+            </pragma>
+        </directive>
+    </sourceFile>
 </AutoPilot:ProjectResources>
+

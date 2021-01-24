@@ -37,15 +37,7 @@ int main (int argc, char** argv)
     int k = waitKey(0); // Wait for a keystroke in the window
 	imwrite(OUTPUT_IMAGE,dstHW_IMG);
 	imwrite("./carsoft.bmp",dstSW_IMG);
-	int mecagoentodo = 0;
-	for (int row = 1; row < ROWS-1; row++) {
-		for (int col = 1; col < COLS-1; col++) {
-			if(dstHW_IMG.at<uint8_t>(row*ROWS+col) == dstSW_IMG.at<uint8_t>(row*ROWS+col)){
-				mecagoentodo++;
-			}
-		}
-	}
-	printf("Todo mal: %d",mecagoentodo);
+
     return 0;
 }
 

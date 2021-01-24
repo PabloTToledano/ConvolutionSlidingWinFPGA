@@ -32234,15 +32234,18 @@ void img_filter(AXI_STREAM& in, AXI_STREAM& out);
 
 
 void img_filter(AXI_STREAM& in, AXI_STREAM& out) {
+_ssdm_op_SpecInterface(&in, "axis", 1, 1, "both", 0, 0, "", "", "", 0, 0, 0, 0, "", "");
+_ssdm_op_SpecInterface(&out, "axis", 1, 1, "both", 0, 0, "", "", "", 0, 0, 0, 0, "", "");
+_ssdm_op_SpecInterface(0, "s_axilite", 0, 0, "", 0, 0, "CONTROL_BUS", "", "", 0, 0, 0, 0, "", "");
  hls::stream<pixel_gray_t> line_buffer[3 -1];
-_ssdm_SpecStream( line_buffer, 1, 480, "");
-# 5 "Convolucion/Resources/top.cpp"
+_ssdm_SpecStream( line_buffer, 2, 640, "");
+# 8 "Convolucion/Resources/top.cpp"
 
  ap_int<32> conv_window[3][3];
 
  const ap_int<4> kernel[3*3] = {0,1,0,1,-4,1,0,1,0};
 _ssdm_SpecConstant(kernel);
-# 8 "Convolucion/Resources/top.cpp"
+# 11 "Convolucion/Resources/top.cpp"
 
  int row,col;
  ap_int<32> conv_result;
@@ -32306,7 +32309,7 @@ _ssdm_SpecConstant(kernel);
    conv_result = 0;
   }
  }
-# 85 "Convolucion/Resources/top.cpp"
+# 88 "Convolucion/Resources/top.cpp"
 }
 
 AXI_VAL push_stream(pixel_rgb_t const &v, bool last = false)

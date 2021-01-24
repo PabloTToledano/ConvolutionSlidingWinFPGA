@@ -7,7 +7,7 @@
 
 `timescale 1 ns / 1 ps 
 
-(* CORE_GENERATION_INFO="img_filter,hls_ip_2018_3,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xczu3eg-sbva484-1-e,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=5.920000,HLS_SYN_LAT=14747856,HLS_SYN_TPT=none,HLS_SYN_MEM=2,HLS_SYN_DSP=2,HLS_SYN_FF=287,HLS_SYN_LUT=994,HLS_VERSION=2018_3}" *)
+(* CORE_GENERATION_INFO="img_filter,hls_ip_2018_3,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xczu3eg-sbva484-1-e,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=5.920000,HLS_SYN_LAT=14747856,HLS_SYN_TPT=none,HLS_SYN_MEM=2,HLS_SYN_DSP=2,HLS_SYN_FF=291,HLS_SYN_LUT=1008,HLS_VERSION=2018_3}" *)
 
 module img_filter (
         ap_clk,
@@ -365,7 +365,7 @@ img_filter_mac_mudEe_U2(
     .dout(grp_fu_908_p3)
 );
 
-fifo_w8_d480_A line_buffer_0_V_V_fifo_U(
+fifo_w8_d640_A line_buffer_0_V_V_fifo_U(
     .clk(ap_clk),
     .reset(ap_rst),
     .if_read_ce(1'b1),
@@ -378,7 +378,7 @@ fifo_w8_d480_A line_buffer_0_V_V_fifo_U(
     .if_read(line_buffer_0_V_V_read)
 );
 
-fifo_w8_d480_A line_buffer_1_V_V_fifo_U(
+fifo_w8_d640_A line_buffer_1_V_V_fifo_U(
     .clk(ap_clk),
     .reset(ap_rst),
     .if_read_ce(1'b1),

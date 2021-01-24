@@ -1,0 +1,174 @@
+
+#include "platform.h"
+#include "xparameters.h"
+#include "xscugic.h"
+#include "xaxidma.h"
+#include "ximg_filter.h"
+#include "lib_ximg_filter_hw.h"
+#include "xil_printf.h"
+#include "stdio.h"
+
+#define XPAR_FABRIC_XIMG_FILTER_0_INTERRUPT_INTR XPAR_FABRIC_XIMG_FILTER_WRAPPED_0_INTERRUPT_INTR
+//#define XPAR_XIMG_FILTER_0_S_AXI_CONTROL_BUS_BASEADDR XPAR_XIMG_FILTER_WRAPPED_0_S_AXI_CONTROL_BUS_BASEADDR
+
+volatile static int ResultExample = 0;
+
+XImg_filter ximgfilter_dev;
+XImg_filter_Config ximgfilter_config = {
+	0,
+	XPAR_XIMG_FILTER_0_S_AXI_CONTROL_BUS_BASEADDR
+};
+
+//Interrupt Controller Instance
+XScuGic ScuGic;
+
+// AXI DMA Instance
+extern XAxiDma AxiDma;
+
+
+int XImg_FilterSetup(){
+	return XImg_filter_CfgInitialize(&ximgfilter_dev,&ximgfilter_config);
+}
+
+void XImg_filterStart(void *InstancePtr){
+	XImg_filter *pExample = (XImg_filter *)InstancePtr;
+	XImg_filter_InterruptEnable(pExample,1);
+	XImg_filter_InterruptGlobalEnable(pExample);
+	XImg_filter_Start(pExample);
+}
+
+
+void XImg_filterIsr(void *InstancePtr){
+	XImg_filter *pExample = (XImg_filter *)InstancePtr;
+
+	//Disable the global interrupt
+	XImg_filter_InterruptGlobalDisable(pExample);
+	//Disable the local interrupt
+	XImg_filter_InterruptDisable(pExample,0xffffffff);
+
+	// clear the local interrupt
+	XImg_filter_InterruptClear(pExample,1);
+	printf("Isr \r\n");
+	ResultExample = 1;
+
+	XImg_filter_InterruptEnable(pExample,1);
+	XImg_filter_InterruptGlobalEnable(pExample);
+
+}
+
+int XImg_filterSetupInterrupt()
+{
+	//This functions sets up the interrupt on the ARM
+	int result;
+	XScuGic_Config *pCfg = XScuGic_LookupConfig(XPAR_SCUGIC_SINGLE_DEVICE_ID);
+	if (pCfg == NULL){
+		print("Interrupt Configuration Lookup Failed\n\r");
+		return XST_FAILURE;
+	}
+	result = XScuGic_CfgInitialize(&ScuGic,pCfg,pCfg->CpuBaseAddress);
+	if(result != XST_SUCCESS){
+		return result;
+	}
+	// self test
+	result = XScuGic_SelfTest(&ScuGic);
+	if(result != XST_SUCCESS){
+		return result;
+	}
+	// Initialize the exception handler
+	Xil_ExceptionInit();
+	// Register the exception handler
+	//print("Register the exception handler\n\r");
+	Xil_ExceptionRegisterHandler(XIL_EXCEPTION_ID_INT,(Xil_ExceptionHandler)XScuGic_InterruptHandler,&ScuGic);
+	//Enable the exception handler
+	Xil_ExceptionEnable();
+	// Connect the Adder ISR to the exception table
+	//print("Connect the Adder ISR to the Exception handler table\n\r");
+	result = XScuGic_Connect(&ScuGic,XPAR_FABRIC_IMG_FILTER_0_INTERRUPT_INTR,(Xil_InterruptHandler)XImg_filterIsr,&ximgfilter_dev);
+	if(result != XST_SUCCESS){
+		return result;
+	}
+	//print("Enable the Adder ISR\n\r");
+	XScuGic_Enable(&ScuGic,XPAR_FABRIC_IMG_FILTER_0_INTERRUPT_INTR);
+	return XST_SUCCESS;
+}
+
+int Setup_HW_Accelerator(char data[DIM],char res_hw[DIM], int dma_size)
+//Setup the Vivado HLS Block
+{
+	int status = XImg_FilterSetup();
+	if(status != XST_SUCCESS){
+		print("Error: example setup failed\n");
+		return XST_FAILURE;
+	}
+	status =  XImg_filterSetupInterrupt();
+	if(status != XST_SUCCESS){
+		print("Error: interrupt setup failed\n");
+		return XST_FAILURE;
+	}
+
+	XImg_filterStart(&ximgfilter_dev);
+
+
+	return 0;
+}
+
+
+
+
+
+int Start_HW_Accelerator(void)
+{
+	int status = XImg_FilterSetup();
+	if(status != XST_SUCCESS){
+		print("Error: example setup failed\n");
+		return XST_FAILURE;
+	}
+	status =  XImg_filterSetupInterrupt();
+	if(status != XST_SUCCESS){
+		print("Error: interrupt setup failed\n");
+		return XST_FAILURE;
+	}
+
+	XImg_filterStart(&ximgfilter_dev);
+
+	return 0;
+}
+
+int Run_HW_Accelerator(u8 data[DIM], u8 res_hw[DIM], int dma_size)
+{
+
+
+	//transfer A to the Vivado HLS block
+	int status = XAxiDma_SimpleTransfer(&AxiDma, (UINTPTR) &data, dma_size, XAXIDMA_DMA_TO_DEVICE);
+	if (status != XST_SUCCESS) {
+		print("Error: DMA transfer (Data) to Vivado HLS block failed\n");
+		printf("Es porque eres un: %d \n",status);
+		return XST_FAILURE;
+	}
+	/* Wait for transfer to be done. Otherwise you'll get an error */
+	//while (XAxiDma_Busy(&AxiDma, XAXIDMA_DMA_TO_DEVICE)) ;
+
+	//Program getting results from the Vivado HLS block
+    printf("Pointer un run : %d\r\n",&res_hw);
+	status = XAxiDma_SimpleTransfer(&AxiDma, (UINTPTR) &res_hw, dma_size,
+			XAXIDMA_DEVICE_TO_DMA);
+	if (status != XST_SUCCESS) {
+		print("Error: DMA transfer (C) from Vivado HLS block failed\n");
+		return XST_FAILURE;
+	}
+
+	//printf("Is done %d\n\r",XImg_filter_IsDone(&ximgfilter_dev));
+	//printf("Is idle %d\n\r",XImg_filter_IsIdle(&ximgfilter_dev));
+	//printf("Is ready %d\n\r",XImg_filter_IsReady(&ximgfilter_dev));
+	while (!ResultExample);
+	ResultExample = 0;
+
+	while ((XAxiDma_Busy(&AxiDma, XAXIDMA_DEVICE_TO_DMA)) || (XAxiDma_Busy(&AxiDma, XAXIDMA_DMA_TO_DEVICE)));
+
+
+	/* Accelerator must me restarted */
+	XImg_filterStart(&ximgfilter_dev);
+
+	return 0;
+
+}

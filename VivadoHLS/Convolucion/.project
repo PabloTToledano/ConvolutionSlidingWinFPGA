@@ -42,6 +42,11 @@
 			<location>C:/Users/pablo/Documents/Empotrados/VivadoHLS/Convolucion/solution1/.tcls</location>
 		</link>
 		<link>
+			<name>solution2/constraints</name>
+			<type>2</type>
+			<location>C:/Users/pablo/Documents/Empotrados/VivadoHLS/Convolucion/solution2/.tcls</location>
+		</link>
+		<link>
 			<name>source/car.bmp</name>
 			<type>1</type>
 			<location>C:/Users/pablo/Documents/Empotrados/VivadoHLS/Convolucion/Resources/car.bmp</location>
@@ -75,6 +80,21 @@
 			<name>solution1/constraints/script.tcl</name>
 			<type>1</type>
 			<location>C:/Users/pablo/Documents/Empotrados/VivadoHLS/Convolucion/solution1/script.tcl</location>
+		</link>
+		<link>
+			<name>solution2/constraints/.xml.directive</name>
+			<type>1</type>
+			<location>C:/Users/pablo/Documents/Empotrados/VivadoHLS/Convolucion/solution2/solution2.directive</location>
+		</link>
+		<link>
+			<name>solution2/constraints/directives.tcl</name>
+			<type>1</type>
+			<location>C:/Users/pablo/Documents/Empotrados/VivadoHLS/Convolucion/solution2/directives.tcl</location>
+		</link>
+		<link>
+			<name>solution2/constraints/script.tcl</name>
+			<type>1</type>
+			<location>C:/Users/pablo/Documents/Empotrados/VivadoHLS/Convolucion/solution2/script.tcl</location>
 		</link>
 	</linkedResources>
 </projectDescription>

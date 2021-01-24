@@ -1,0 +1,21 @@
+13:23:33 **** Incremental Build of configuration Debug for project ConvolutionV3 ****
+make all 
+'Building file: ../src/main.c'
+'Invoking: ARM v8 gcc compiler'
+aarch64-none-elf-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -I../../standalone_bsp_0/psu_cortexa53_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+'Finished building: ../src/main.c'
+' '
+'Building target: ConvolutionV3.elf'
+'Invoking: ARM v8 gcc linker'
+aarch64-none-elf-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/psu_cortexa53_0/lib -o "ConvolutionV3.elf"  ./src/lib_ximg_filter_hw.o ./src/main.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxilffs,-lxil,-lgcc,-lc,--end-group
+'Finished building target: ConvolutionV3.elf'
+' '
+'Invoking: ARM v8 Print Size'
+aarch64-none-elf-size ConvolutionV3.elf  |tee "ConvolutionV3.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 123228	   7952	2791008	2922188	 2c96cc	ConvolutionV3.elf
+'Finished building: ConvolutionV3.elf.size'
+' '
+
+13:23:34 Build Finished (took 1s.87ms)
+

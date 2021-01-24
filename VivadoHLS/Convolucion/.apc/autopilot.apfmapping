@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
   <source>
-    <originFiles name="top.cpp" path="C:\Users\pablo\Documents\Empotrados\VivadoHLS\Convolucion\Resources\top.cpp"/>
-    <originFiles name="img_filter.h" path="C:\Users\pablo\Documents\Empotrados\VivadoHLS\Convolucion\Resources\img_filter.h"/>
     <originFiles name="car.bmp" path="C:\Users\pablo\Documents\Empotrados\VivadoHLS\Convolucion\Resources\car.bmp"/>
+    <originFiles name="img_filter.h" path="C:\Users\pablo\Documents\Empotrados\VivadoHLS\Convolucion\Resources\img_filter.h"/>
+    <originFiles name="top.cpp" path="C:\Users\pablo\Documents\Empotrados\VivadoHLS\Convolucion\Resources\top.cpp"/>
   </source>
   <testbench>
     <originFiles name="testbench.cpp" path="C:\Users\pablo\Documents\Empotrados\VivadoHLS\Convolucion\Resources\testbench.cpp"/>

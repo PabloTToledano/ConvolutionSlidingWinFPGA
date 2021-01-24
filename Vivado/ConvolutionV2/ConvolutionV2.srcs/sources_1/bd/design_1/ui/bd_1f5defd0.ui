@@ -1,0 +1,37 @@
+{
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 6.8.11  2018-08-07 bk=1.4403 VDI=40 GEI=35 GUI=JA:9.0 non-TLS
+#  -string -flagsOSRD
+preplace inst img_filter_0 -pg 1 -lvl 5 -y 270 -defaultsOSRD
+preplace inst ps8_0_axi_periph -pg 1 -lvl 4 -y 200 -defaultsOSRD
+preplace inst axi_dma_0 -pg 1 -lvl 7 -y 280 -defaultsOSRD
+preplace inst zynq_ultra_ps_e_0 -pg 1 -lvl 3 -y 100 -defaultsOSRD
+preplace inst axi_smc -pg 1 -lvl 2 -y 300 -defaultsOSRD
+preplace inst axi_timer_0 -pg 1 -lvl 5 -y 670 -defaultsOSRD
+preplace inst proc_sys_reset_0 -pg 1 -lvl 1 -y 280 -defaultsOSRD
+preplace inst axis_dwidth_converter_0 -pg 1 -lvl 6 -y 280 -defaultsOSRD
+preplace inst axis_dwidth_converter_2 -pg 1 -lvl 4 -y 480 -defaultsOSRD
+preplace netloc axis_dwidth_converter_0_M_AXIS 1 6 1 2180
+preplace netloc zynq_ultra_ps_e_0_pl_clk0 1 0 7 20 380 380 400 660 200 1280 570 1610 380 1970 360 2190
+preplace netloc axi_smc_M00_AXI 1 2 1 650
+preplace netloc ps8_0_axi_periph_M02_AXI 1 4 1 1590
+preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM0_FPD 1 3 1 N
+preplace netloc ps8_0_axi_periph_M01_AXI 1 4 1 1620
+preplace netloc axi_dma_0_M_AXI_MM2S 1 1 7 390 210 NJ 210 1270J 10 NJ 10 NJ 10 NJ 10 2530
+preplace netloc ps8_0_axi_periph_M00_AXI 1 4 3 NJ 180 NJ 180 2180
+preplace netloc axi_dma_0_M_AXI_S2MM 1 1 7 390 560 NJ 560 NJ 560 NJ 560 NJ 560 NJ 560 2530
+preplace netloc proc_sys_reset_0_peripheral_aresetn 1 1 6 370 410 NJ 410 1290 580 1620 390 1980 370 2200J
+preplace netloc zynq_ultra_ps_e_0_pl_resetn0 1 0 4 30 390 NJ 390 670J 380 1260
+preplace netloc img_filter_0_out_r 1 5 1 N
+preplace netloc axis_dwidth_converter_2_M_AXIS 1 4 1 1580
+preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM1_FPD 1 3 1 N
+preplace netloc axi_dma_0_M_AXIS_MM2S 1 3 5 1300 400 NJ 400 NJ 400 NJ 400 2520
+preplace netloc img_filter_0_interrupt 1 2 4 680 390 NJ 390 1600J 370 1960
+levelinfo -pg 1 0 200 520 970 1440 1790 2080 2360 2550 -top 0 -bot 780
+"
+}
+{
+   "da_axi4_cnt":"8",
+   "da_clkrst_cnt":"8",
+   "da_zynq_ultra_ps_e_cnt":"1"
+}

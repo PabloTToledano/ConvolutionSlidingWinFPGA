@@ -1,0 +1,861 @@
+==============================================================
+File generated on Fri Jan 01 17:12:54 +0100 2021
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2018.3 (64-bit)
+SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+File generated on Fri Jan 01 17:13:25 +0100 2021
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2018.3 (64-bit)
+SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xczu3eg-sbva484-1-e'
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+==============================================================
+File generated on Fri Jan 01 17:14:24 +0100 2021
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2018.3 (64-bit)
+SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xczu3eg-sbva484-1-e'
+INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
+WARNING: [HLS 200-40] Skipped source file 'car.bmp'. Source files must have extensions .c, .C, .cc, .cpp, .c++, .cp, or .cxx.
+INFO: [HLS 200-10] Analyzing design file 'Convolucion/Resources/top.cpp' ... 
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:01 ; elapsed = 00:00:28 . Memory (MB): peak = 104.148 ; gain = 18.746
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:01 ; elapsed = 00:00:28 . Memory (MB): peak = 104.148 ; gain = 18.746
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [XFORM 203-603] Inlining function 'push_stream' into 'img_filter'.
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:01 ; elapsed = 00:00:29 . Memory (MB): peak = 152.297 ; gain = 66.895
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:02 ; elapsed = 00:00:30 . Memory (MB): peak = 187.203 ; gain = 101.801
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'Buffer_padding' (Convolucion/Resources/top.cpp:17) in function 'img_filter' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'conv_windows_padding' (Convolucion/Resources/top.cpp:24) in function 'img_filter' for pipelining.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.1' (Convolucion/Resources/top.cpp:18) in function 'img_filter' completely with a factor of 637.
+INFO: [HLS 200-489] Unrolling loop 'Loop-2.1' (Convolucion/Resources/top.cpp:25) in function 'img_filter' completely with a factor of 3.
+INFO: [XFORM 203-102] Automatically partitioning streamed array 'line_buffer.V.V' (Convolucion/Resources/top.cpp:8) .
+INFO: [XFORM 203-101] Partitioning array 'line_buffer.V.V' (Convolucion/Resources/top.cpp:8) in dimension 1 completely.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:01:01 ; elapsed = 00:01:30 . Memory (MB): peak = 314.789 ; gain = 229.387
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:02:30 ; elapsed = 00:03:00 . Memory (MB): peak = 661.875 ; gain = 576.473
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'img_filter' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'img_filter' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'Buffer_padding'.
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 3, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 4, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 130, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 193, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 225, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 241, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 249, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 253, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 255, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 256, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+INFO: [SCHED 204-61] Unable to satisfy pipeline directive: Unable to pipeline the region.
+INFO: [SCHED 204-61] Pipelining loop 'conv_windows_padding'.
+WARNING: [SCHED 204-69] Unable to schedule 'store' operation (Convolucion/Resources/top.cpp:26) of constant 0 on array 'conv_window.V', Convolucion/Resources/top.cpp:9 due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'conv_window_V'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 2, Depth = 2.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 408.435 seconds; current allocated memory: 1016.277 MB.
+INFO: [HLS 200-434] Only 1 loops out of a total 8 loops have been pipelined in this design.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 24.119 seconds; current allocated memory: 1023.814 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'img_filter' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/in_V_data_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/in_V_keep_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/in_V_strb_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/in_V_user_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/in_V_last_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/in_V_id_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/in_V_dest_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/out_V_data_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/out_V_keep_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/out_V_strb_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/out_V_user_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/out_V_last_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/out_V_id_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/out_V_dest_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on function 'img_filter' to 's_axilite & ap_ctrl_hs'.
+INFO: [RTGEN 206-100] Bundling port 'return' to AXI-Lite port CONTROL_BUS.
+INFO: [SYN 201-210] Renamed object name 'img_filter_conv_window_V' to 'img_filter_conv_wbkb' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'img_filter_am_addmul_8ns_9ns_12ns_22_1_1' to 'img_filter_am_addcud' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'img_filter_mac_muladd_3s_8ns_32ns_32_1_1' to 'img_filter_mac_mudEe' due to the length limit 20
+INFO: [RTGEN 206-100] Generating core module 'img_filter_am_addcud': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'img_filter_mac_mudEe': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'img_filter'.
+INFO: [HLS 200-111]  Elapsed time: 16.671 seconds; current allocated memory: 1.029 GB.
+INFO: [RTMG 210-279] Implementing memory 'img_filter_kernel_rom' using distributed ROMs.
+INFO: [RTMG 210-278] Implementing memory 'img_filter_conv_wbkb_ram (RAM)' using block RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'line_buffer_0_V_V_U(fifo_w8_d640_A)' using Block RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'line_buffer_1_V_V_U(fifo_w8_d640_A)' using Block RAMs.
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:07:11 ; elapsed = 00:07:57 . Memory (MB): peak = 2040.551 ; gain = 1955.148
+INFO: [SYSC 207-301] Generating SystemC RTL for img_filter.
+INFO: [VHDL 208-304] Generating VHDL RTL for img_filter.
+INFO: [VLOG 209-307] Generating Verilog RTL for img_filter.
+INFO: [HLS 200-112] Total elapsed time: 478.755 seconds; peak allocated memory: 1.029 GB.
+==============================================================
+File generated on Fri Jan 01 17:29:18 +0100 2021
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2018.3 (64-bit)
+SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xczu3eg-sbva484-1-e'
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+==============================================================
+File generated on Fri Jan 01 17:35:20 +0100 2021
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2018.3 (64-bit)
+SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xczu3eg-sbva484-1-e'
+INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
+WARNING: [HLS 200-40] Skipped source file 'car.bmp'. Source files must have extensions .c, .C, .cc, .cpp, .c++, .cp, or .cxx.
+INFO: [HLS 200-10] Analyzing design file 'Convolucion/Resources/top.cpp' ... 
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:02 ; elapsed = 00:00:20 . Memory (MB): peak = 104.242 ; gain = 19.492
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:02 ; elapsed = 00:00:20 . Memory (MB): peak = 104.242 ; gain = 19.492
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [XFORM 203-603] Inlining function 'push_stream' into 'img_filter'.
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:02 ; elapsed = 00:00:22 . Memory (MB): peak = 152.090 ; gain = 67.340
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:02 ; elapsed = 00:00:22 . Memory (MB): peak = 186.855 ; gain = 102.105
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'Buffer_padding' (Convolucion/Resources/top.cpp:17) in function 'img_filter' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'conv_windows_padding' (Convolucion/Resources/top.cpp:24) in function 'img_filter' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'wind_data_move1' (Convolucion/Resources/top.cpp:46) in function 'img_filter' for pipelining.
+WARNING: [XFORM 203-505] Ignored pipeline directive for loop 'wind_data_move' (Convolucion/Resources/top.cpp:47) because its parent loop or function is pipelined.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'convolution1' (Convolucion/Resources/top.cpp:60) in function 'img_filter' for pipelining.
+WARNING: [XFORM 203-505] Ignored pipeline directive for loop 'convolution2' (Convolucion/Resources/top.cpp:61) because its parent loop or function is pipelined.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.1' (Convolucion/Resources/top.cpp:18) in function 'img_filter' completely with a factor of 637.
+INFO: [HLS 200-489] Unrolling loop 'Loop-2.1' (Convolucion/Resources/top.cpp:25) in function 'img_filter' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'wind_data_move' (Convolucion/Resources/top.cpp:47) in function 'img_filter' completely with a factor of 2.
+INFO: [HLS 200-489] Unrolling loop 'convolution2' (Convolucion/Resources/top.cpp:61) in function 'img_filter' completely with a factor of 3.
+INFO: [XFORM 203-102] Partitioning array 'conv_window.V' (Convolucion/Resources/top.cpp:9) in dimension 2 automatically.
+INFO: [XFORM 203-102] Automatically partitioning small array 'conv_window.V.0' (Convolucion/Resources/top.cpp:9) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'conv_window.V.1' (Convolucion/Resources/top.cpp:9) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'conv_window.V.2' (Convolucion/Resources/top.cpp:9) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning streamed array 'line_buffer.V.V' (Convolucion/Resources/top.cpp:8) .
+INFO: [XFORM 203-101] Partitioning array 'conv_window.V.0' (Convolucion/Resources/top.cpp:9) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'conv_window.V.1' (Convolucion/Resources/top.cpp:9) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'conv_window.V.2' (Convolucion/Resources/top.cpp:9) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'line_buffer.V.V' (Convolucion/Resources/top.cpp:8) in dimension 1 completely.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (Convolucion/Resources/top.cpp:46:42) to (Convolucion/Resources/top.cpp:50:6) in function 'img_filter'... converting 9 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (Convolucion/Resources/top.cpp:51:30) to (Convolucion/Resources/top.cpp:52:7) in function 'img_filter'... converting 5 basic blocks.
+INFO: [XFORM 203-11] Balancing expressions in function 'img_filter' (Convolucion/Resources/top.cpp:4)...3 expression(s) balanced.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:01:08 ; elapsed = 00:01:29 . Memory (MB): peak = 314.711 ; gain = 229.961
+WARNING: [XFORM 203-542] Cannot flatten a loop nest 'Loop-3.1' (Convolucion/Resources/top.cpp:34:8) in function 'img_filter' : 
+
+more than one sub loop.
+INFO: [XFORM 203-541] Flattening a loop nest 'Loop-3' (Convolucion/Resources/top.cpp:33:7) in function 'img_filter'.
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:02:42 ; elapsed = 00:03:05 . Memory (MB): peak = 663.676 ; gain = 578.926
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'img_filter' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'img_filter' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'Buffer_padding'.
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 3, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 4, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 130, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 193, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 225, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 241, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 249, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 253, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 255, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 256, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+INFO: [SCHED 204-61] Unable to satisfy pipeline directive: Unable to pipeline the region.
+INFO: [SCHED 204-61] Pipelining loop 'conv_windows_padding'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 1.
+INFO: [SCHED 204-61] Pipelining loop 'wind_data_move1'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 2.
+INFO: [SCHED 204-61] Pipelining loop 'convolution1'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 2.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 460.541 seconds; current allocated memory: 1015.875 MB.
+INFO: [HLS 200-434] Only 3 loops out of a total 5 loops have been pipelined in this design.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 28.314 seconds; current allocated memory: 1023.628 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'img_filter' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/in_V_data_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/in_V_keep_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/in_V_strb_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/in_V_user_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/in_V_last_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/in_V_id_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/in_V_dest_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/out_V_data_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/out_V_keep_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/out_V_strb_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/out_V_user_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/out_V_last_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/out_V_id_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/out_V_dest_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on function 'img_filter' to 's_axilite & ap_ctrl_hs'.
+INFO: [RTGEN 206-100] Bundling port 'return' to AXI-Lite port CONTROL_BUS.
+INFO: [SYN 201-210] Renamed object name 'img_filter_mux_32_32_1_1' to 'img_filter_mux_32bkb' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'img_filter_am_addmul_8ns_9ns_12ns_22_1_1' to 'img_filter_am_addcud' due to the length limit 20
+INFO: [RTGEN 206-100] Generating core module 'img_filter_am_addcud': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'img_filter_mux_32bkb': 5 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'img_filter'.
+INFO: [HLS 200-111]  Elapsed time: 19.237 seconds; current allocated memory: 1.029 GB.
+INFO: [RTMG 210-279] Implementing memory 'img_filter_kernel_rom' using distributed ROMs.
+INFO: [RTMG 210-285] Implementing FIFO 'line_buffer_0_V_V_U(fifo_w8_d640_A)' using Block RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'line_buffer_1_V_V_U(fifo_w8_d640_A)' using Block RAMs.
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:08:19 ; elapsed = 00:09:01 . Memory (MB): peak = 2082.445 ; gain = 1997.695
+INFO: [SYSC 207-301] Generating SystemC RTL for img_filter.
+INFO: [VHDL 208-304] Generating VHDL RTL for img_filter.
+INFO: [VLOG 209-307] Generating Verilog RTL for img_filter.
+INFO: [HLS 200-112] Total elapsed time: 542.166 seconds; peak allocated memory: 1.029 GB.
+==============================================================
+File generated on Fri Jan 01 18:10:54 +0100 2021
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2018.3 (64-bit)
+SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xczu3eg-sbva484-1-e'
+INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
+WARNING: [HLS 200-40] Skipped source file 'car.bmp'. Source files must have extensions .c, .C, .cc, .cpp, .c++, .cp, or .cxx.
+INFO: [HLS 200-10] Analyzing design file 'Convolucion/Resources/top.cpp' ... 
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:01 ; elapsed = 00:00:22 . Memory (MB): peak = 104.215 ; gain = 19.504
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:01 ; elapsed = 00:00:22 . Memory (MB): peak = 104.215 ; gain = 19.504
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [XFORM 203-603] Inlining function 'push_stream' into 'img_filter'.
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:01 ; elapsed = 00:00:23 . Memory (MB): peak = 152.105 ; gain = 67.395
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:02 ; elapsed = 00:00:24 . Memory (MB): peak = 185.906 ; gain = 101.195
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'Buffer_padding' (Convolucion/Resources/top.cpp:17) in function 'img_filter' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'conv_windows_padding' (Convolucion/Resources/top.cpp:24) in function 'img_filter' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'wind_data_move1' (Convolucion/Resources/top.cpp:46) in function 'img_filter' for pipelining.
+WARNING: [XFORM 203-505] Ignored pipeline directive for loop 'wind_data_move' (Convolucion/Resources/top.cpp:47) because its parent loop or function is pipelined.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'convolution1' (Convolucion/Resources/top.cpp:60) in function 'img_filter' for pipelining.
+WARNING: [XFORM 203-505] Ignored pipeline directive for loop 'convolution2' (Convolucion/Resources/top.cpp:61) because its parent loop or function is pipelined.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.1' (Convolucion/Resources/top.cpp:18) in function 'img_filter' completely with a factor of 637.
+INFO: [HLS 200-489] Unrolling loop 'Loop-2.1' (Convolucion/Resources/top.cpp:25) in function 'img_filter' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'wind_data_move' (Convolucion/Resources/top.cpp:47) in function 'img_filter' completely with a factor of 2.
+INFO: [HLS 200-489] Unrolling loop 'convolution2' (Convolucion/Resources/top.cpp:61) in function 'img_filter' completely with a factor of 3.
+INFO: [XFORM 203-102] Automatically partitioning streamed array 'line_buffer.V.V' (Convolucion/Resources/top.cpp:8) .
+INFO: [XFORM 203-101] Partitioning array 'conv_window.V' (Convolucion/Resources/top.cpp:9) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'line_buffer.V.V' (Convolucion/Resources/top.cpp:8) in dimension 1 completely.
+INFO: [XFORM 203-102] Automatically partitioning small array 'conv_window.V.0' (Convolucion/Resources/top.cpp:9) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'conv_window.V.1' (Convolucion/Resources/top.cpp:9) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'conv_window.V.2' (Convolucion/Resources/top.cpp:9) completely based on array size.
+INFO: [XFORM 203-101] Partitioning array 'conv_window.V.0' (Convolucion/Resources/top.cpp:9) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'conv_window.V.1' (Convolucion/Resources/top.cpp:9) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'conv_window.V.2' (Convolucion/Resources/top.cpp:9) in dimension 1 completely.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (Convolucion/Resources/top.cpp:46:42) to (Convolucion/Resources/top.cpp:50:6) in function 'img_filter'... converting 9 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (Convolucion/Resources/top.cpp:51:30) to (Convolucion/Resources/top.cpp:52:7) in function 'img_filter'... converting 5 basic blocks.
+INFO: [XFORM 203-11] Balancing expressions in function 'img_filter' (Convolucion/Resources/top.cpp:4)...3 expression(s) balanced.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:01:06 ; elapsed = 00:01:29 . Memory (MB): peak = 315.344 ; gain = 230.633
+WARNING: [XFORM 203-542] Cannot flatten a loop nest 'Loop-3.1' (Convolucion/Resources/top.cpp:34:8) in function 'img_filter' : 
+
+more than one sub loop.
+INFO: [XFORM 203-541] Flattening a loop nest 'Loop-3' (Convolucion/Resources/top.cpp:33:7) in function 'img_filter'.
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:02:33 ; elapsed = 00:02:57 . Memory (MB): peak = 664.113 ; gain = 579.402
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'img_filter' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'img_filter' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'Buffer_padding'.
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 3, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 4, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 130, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 193, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 225, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 241, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 249, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 253, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 255, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 256, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+INFO: [SCHED 204-61] Unable to satisfy pipeline directive: Unable to pipeline the region.
+INFO: [SCHED 204-61] Pipelining loop 'conv_windows_padding'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 1.
+INFO: [SCHED 204-61] Pipelining loop 'wind_data_move1'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 2.
+INFO: [SCHED 204-61] Pipelining loop 'convolution1'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 2.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 426.723 seconds; current allocated memory: 1015.898 MB.
+INFO: [HLS 200-434] Only 3 loops out of a total 5 loops have been pipelined in this design.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 24.747 seconds; current allocated memory: 1023.651 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'img_filter' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/in_V_data_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/in_V_keep_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/in_V_strb_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/in_V_user_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/in_V_last_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/in_V_id_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/in_V_dest_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/out_V_data_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/out_V_keep_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/out_V_strb_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/out_V_user_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/out_V_last_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/out_V_id_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/out_V_dest_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on function 'img_filter' to 's_axilite & ap_ctrl_hs'.
+INFO: [RTGEN 206-100] Bundling port 'return' to AXI-Lite port CONTROL_BUS.
+INFO: [SYN 201-210] Renamed object name 'img_filter_mux_32_32_1_1' to 'img_filter_mux_32bkb' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'img_filter_am_addmul_8ns_9ns_12ns_22_1_1' to 'img_filter_am_addcud' due to the length limit 20
+INFO: [RTGEN 206-100] Generating core module 'img_filter_am_addcud': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'img_filter_mux_32bkb': 5 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'img_filter'.
+INFO: [HLS 200-111]  Elapsed time: 16.842 seconds; current allocated memory: 1.029 GB.
+INFO: [RTMG 210-279] Implementing memory 'img_filter_kernel_rom' using distributed ROMs.
+INFO: [RTMG 210-285] Implementing FIFO 'line_buffer_0_V_V_U(fifo_w8_d640_A)' using Block RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'line_buffer_1_V_V_U(fifo_w8_d640_A)' using Block RAMs.
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:07:36 ; elapsed = 00:08:18 . Memory (MB): peak = 2061.820 ; gain = 1977.109
+INFO: [SYSC 207-301] Generating SystemC RTL for img_filter.
+INFO: [VHDL 208-304] Generating VHDL RTL for img_filter.
+INFO: [VLOG 209-307] Generating Verilog RTL for img_filter.
+INFO: [HLS 200-112] Total elapsed time: 499.413 seconds; peak allocated memory: 1.029 GB.
+==============================================================
+File generated on Fri Jan 01 18:30:06 +0100 2021
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2018.3 (64-bit)
+SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xczu3eg-sbva484-1-e'
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+==============================================================
+File generated on Fri Jan 01 18:30:48 +0100 2021
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2018.3 (64-bit)
+SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xczu3eg-sbva484-1-e'
+INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
+WARNING: [HLS 200-40] Skipped source file 'car.bmp'. Source files must have extensions .c, .C, .cc, .cpp, .c++, .cp, or .cxx.
+INFO: [HLS 200-10] Analyzing design file 'Convolucion/Resources/top.cpp' ... 
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:02 ; elapsed = 00:00:22 . Memory (MB): peak = 104.211 ; gain = 18.785
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:02 ; elapsed = 00:00:22 . Memory (MB): peak = 104.211 ; gain = 18.785
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [XFORM 203-603] Inlining function 'push_stream' into 'img_filter'.
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:02 ; elapsed = 00:00:24 . Memory (MB): peak = 152.176 ; gain = 66.750
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:03 ; elapsed = 00:00:25 . Memory (MB): peak = 187.012 ; gain = 101.586
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'Buffer_padding' (Convolucion/Resources/top.cpp:17) in function 'img_filter' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'conv_windows_padding' (Convolucion/Resources/top.cpp:24) in function 'img_filter' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'convolution' (Convolucion/Resources/top.cpp:34) in function 'img_filter' for pipelining.
+WARNING: [XFORM 203-505] Ignored pipeline directive for loop 'wind_data_move1' (Convolucion/Resources/top.cpp:46) because its parent loop or function is pipelined.
+WARNING: [XFORM 203-505] Ignored pipeline directive for loop 'wind_data_move' (Convolucion/Resources/top.cpp:47) because its parent loop or function is pipelined.
+WARNING: [XFORM 203-505] Ignored pipeline directive for loop 'convolution1' (Convolucion/Resources/top.cpp:60) because its parent loop or function is pipelined.
+WARNING: [XFORM 203-505] Ignored pipeline directive for loop 'convolution2' (Convolucion/Resources/top.cpp:61) because its parent loop or function is pipelined.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.1' (Convolucion/Resources/top.cpp:18) in function 'img_filter' completely with a factor of 637.
+INFO: [HLS 200-489] Unrolling loop 'Loop-2.1' (Convolucion/Resources/top.cpp:25) in function 'img_filter' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'wind_data_move1' (Convolucion/Resources/top.cpp:46) in function 'img_filter' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'wind_data_move' (Convolucion/Resources/top.cpp:47) in function 'img_filter' completely with a factor of 2.
+INFO: [HLS 200-489] Unrolling loop 'convolution1' (Convolucion/Resources/top.cpp:60) in function 'img_filter' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'convolution2' (Convolucion/Resources/top.cpp:61) in function 'img_filter' completely with a factor of 3.
+INFO: [XFORM 203-102] Automatically partitioning streamed array 'line_buffer.V.V' (Convolucion/Resources/top.cpp:8) .
+INFO: [XFORM 203-101] Partitioning array 'conv_window.V' (Convolucion/Resources/top.cpp:9) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'line_buffer.V.V' (Convolucion/Resources/top.cpp:8) in dimension 1 completely.
+INFO: [XFORM 203-102] Automatically partitioning small array 'conv_window.V.0' (Convolucion/Resources/top.cpp:9) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'conv_window.V.1' (Convolucion/Resources/top.cpp:9) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'conv_window.V.2' (Convolucion/Resources/top.cpp:9) completely based on array size.
+INFO: [XFORM 203-101] Partitioning array 'conv_window.V.0' (Convolucion/Resources/top.cpp:9) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'conv_window.V.1' (Convolucion/Resources/top.cpp:9) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'conv_window.V.2' (Convolucion/Resources/top.cpp:9) in dimension 1 completely.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:01:05 ; elapsed = 00:01:28 . Memory (MB): peak = 315.270 ; gain = 229.844
+INFO: [XFORM 203-541] Flattening a loop nest 'Loop-3' (Convolucion/Resources/top.cpp:33:7) in function 'img_filter'.
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:02:31 ; elapsed = 00:02:54 . Memory (MB): peak = 659.461 ; gain = 574.035
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'img_filter' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'img_filter' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'Buffer_padding'.
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 3, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 4, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 130, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 193, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 225, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 241, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 249, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 253, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 255, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 256, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+INFO: [SCHED 204-61] Unable to satisfy pipeline directive: Unable to pipeline the region.
+INFO: [SCHED 204-61] Pipelining loop 'conv_windows_padding'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 1.
+INFO: [SCHED 204-61] Pipelining loop 'L_convolution'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 3.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 403.827 seconds; current allocated memory: 1014.712 MB.
+INFO: [HLS 200-434] Only 2 loops out of a total 3 loops have been pipelined in this design.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 25.566 seconds; current allocated memory: 1022.060 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'img_filter' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/in_V_data_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/in_V_keep_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/in_V_strb_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/in_V_user_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/in_V_last_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/in_V_id_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/in_V_dest_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/out_V_data_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/out_V_keep_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/out_V_strb_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/out_V_user_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/out_V_last_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/out_V_id_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/out_V_dest_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on function 'img_filter' to 's_axilite & ap_ctrl_hs'.
+INFO: [RTGEN 206-100] Bundling port 'return' to AXI-Lite port CONTROL_BUS.
+INFO: [SYN 201-210] Renamed object name 'img_filter_mux_42_32_1_1' to 'img_filter_mux_42bkb' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'img_filter_am_addmul_8ns_9ns_12ns_22_1_1' to 'img_filter_am_addcud' due to the length limit 20
+INFO: [RTGEN 206-100] Generating core module 'img_filter_am_addcud': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'img_filter_mux_42bkb': 5 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'img_filter'.
+INFO: [HLS 200-111]  Elapsed time: 16.903 seconds; current allocated memory: 1.027 GB.
+INFO: [RTMG 210-285] Implementing FIFO 'line_buffer_0_V_V_U(fifo_w8_d640_A)' using Block RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'line_buffer_1_V_V_U(fifo_w8_d640_A)' using Block RAMs.
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:07:15 ; elapsed = 00:07:56 . Memory (MB): peak = 2061.359 ; gain = 1975.934
+INFO: [SYSC 207-301] Generating SystemC RTL for img_filter.
+INFO: [VHDL 208-304] Generating VHDL RTL for img_filter.
+INFO: [VLOG 209-307] Generating Verilog RTL for img_filter.
+INFO: [HLS 200-112] Total elapsed time: 477.431 seconds; peak allocated memory: 1.027 GB.
+==============================================================
+File generated on Fri Jan 01 18:44:53 +0100 2021
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2018.3 (64-bit)
+SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xczu3eg-sbva484-1-e'
+INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
+WARNING: [HLS 200-40] Skipped source file 'car.bmp'. Source files must have extensions .c, .C, .cc, .cpp, .c++, .cp, or .cxx.
+INFO: [HLS 200-10] Analyzing design file 'Convolucion/Resources/top.cpp' ... 
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:02 ; elapsed = 00:00:21 . Memory (MB): peak = 104.145 ; gain = 19.473
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:02 ; elapsed = 00:00:21 . Memory (MB): peak = 104.145 ; gain = 19.473
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [XFORM 203-603] Inlining function 'push_stream' into 'img_filter'.
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:02 ; elapsed = 00:00:22 . Memory (MB): peak = 152.211 ; gain = 67.539
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:03 ; elapsed = 00:00:23 . Memory (MB): peak = 186.250 ; gain = 101.578
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'Buffer_padding' (Convolucion/Resources/top.cpp:17) in function 'img_filter' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'conv_windows_padding' (Convolucion/Resources/top.cpp:24) in function 'img_filter' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'convolution_rows' (Convolucion/Resources/top.cpp:33) in function 'img_filter' for pipelining.
+WARNING: [XFORM 203-505] Ignored pipeline directive for loop 'wind_data_move1' (Convolucion/Resources/top.cpp:46) because its parent loop or function is pipelined.
+WARNING: [XFORM 203-505] Ignored pipeline directive for loop 'wind_data_move' (Convolucion/Resources/top.cpp:47) because its parent loop or function is pipelined.
+WARNING: [XFORM 203-505] Ignored pipeline directive for loop 'convolution1' (Convolucion/Resources/top.cpp:60) because its parent loop or function is pipelined.
+WARNING: [XFORM 203-505] Ignored pipeline directive for loop 'convolution2' (Convolucion/Resources/top.cpp:61) because its parent loop or function is pipelined.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.1' (Convolucion/Resources/top.cpp:18) in function 'img_filter' completely with a factor of 637.
+INFO: [HLS 200-489] Unrolling loop 'Loop-2.1' (Convolucion/Resources/top.cpp:25) in function 'img_filter' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'convolution_cols' (Convolucion/Resources/top.cpp:34) in function 'img_filter' completely with a factor of 640.
+ERROR: [XFORM 203-504] Stop unrolling loop 'convolution_cols' (Convolucion/Resources/top.cpp:34) in function 'img_filter' because it may cause large runtime and excessive memory usage due to increase in code size. Please avoid unrolling the loop or form sub-functions for code in the loop body.
+ERROR: [HLS 200-70] Pre-synthesis failed.
+==============================================================
+File generated on Fri Jan 01 18:46:06 +0100 2021
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2018.3 (64-bit)
+SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xczu3eg-sbva484-1-e'
+INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
+WARNING: [HLS 200-40] Skipped source file 'car.bmp'. Source files must have extensions .c, .C, .cc, .cpp, .c++, .cp, or .cxx.
+INFO: [HLS 200-10] Analyzing design file 'Convolucion/Resources/top.cpp' ... 
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:01 ; elapsed = 00:00:21 . Memory (MB): peak = 104.020 ; gain = 19.477
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:01 ; elapsed = 00:00:21 . Memory (MB): peak = 104.020 ; gain = 19.477
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [XFORM 203-603] Inlining function 'push_stream' into 'img_filter'.
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:01 ; elapsed = 00:00:23 . Memory (MB): peak = 152.312 ; gain = 67.770
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:02 ; elapsed = 00:00:24 . Memory (MB): peak = 187.273 ; gain = 102.730
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'Buffer_padding' (Convolucion/Resources/top.cpp:17) in function 'img_filter' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'conv_windows_padding' (Convolucion/Resources/top.cpp:24) in function 'img_filter' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'convolution_rows' (Convolucion/Resources/top.cpp:33) in function 'img_filter' for pipelining.
+WARNING: [XFORM 203-505] Ignored pipeline directive for loop 'wind_data_move1' (Convolucion/Resources/top.cpp:46) because its parent loop or function is pipelined.
+WARNING: [XFORM 203-505] Ignored pipeline directive for loop 'wind_data_move' (Convolucion/Resources/top.cpp:47) because its parent loop or function is pipelined.
+WARNING: [XFORM 203-505] Ignored pipeline directive for loop 'convolution2' (Convolucion/Resources/top.cpp:61) because its parent loop or function is pipelined.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.1' (Convolucion/Resources/top.cpp:18) in function 'img_filter' completely with a factor of 637.
+INFO: [HLS 200-489] Unrolling loop 'Loop-2.1' (Convolucion/Resources/top.cpp:25) in function 'img_filter' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'convolution_cols' (Convolucion/Resources/top.cpp:34) in function 'img_filter' completely with a factor of 640.
+ERROR: [XFORM 203-504] Stop unrolling loop 'convolution_cols' (Convolucion/Resources/top.cpp:34) in function 'img_filter' because it may cause large runtime and excessive memory usage due to increase in code size. Please avoid unrolling the loop or form sub-functions for code in the loop body.
+ERROR: [HLS 200-70] Pre-synthesis failed.
+==============================================================
+File generated on Fri Jan 01 18:49:06 +0100 2021
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2018.3 (64-bit)
+SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xczu3eg-sbva484-1-e'
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+==============================================================
+File generated on Fri Jan 01 18:49:51 +0100 2021
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2018.3 (64-bit)
+SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xczu3eg-sbva484-1-e'
+INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
+WARNING: [HLS 200-40] Skipped source file 'car.bmp'. Source files must have extensions .c, .C, .cc, .cpp, .c++, .cp, or .cxx.
+INFO: [HLS 200-10] Analyzing design file 'Convolucion/Resources/top.cpp' ... 
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:02 ; elapsed = 00:00:21 . Memory (MB): peak = 104.242 ; gain = 19.465
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:02 ; elapsed = 00:00:21 . Memory (MB): peak = 104.242 ; gain = 19.465
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [XFORM 203-603] Inlining function 'push_stream' into 'img_filter'.
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:02 ; elapsed = 00:00:22 . Memory (MB): peak = 151.895 ; gain = 67.117
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:02 ; elapsed = 00:00:23 . Memory (MB): peak = 187.410 ; gain = 102.633
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'Buffer_padding' (Convolucion/Resources/top.cpp:17) in function 'img_filter' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'conv_windows_padding' (Convolucion/Resources/top.cpp:24) in function 'img_filter' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'convolution' (Convolucion/Resources/top.cpp:34) in function 'img_filter' for pipelining.
+WARNING: [XFORM 203-505] Ignored pipeline directive for loop 'wind_data_move1' (Convolucion/Resources/top.cpp:46) because its parent loop or function is pipelined.
+WARNING: [XFORM 203-505] Ignored pipeline directive for loop 'wind_data_move' (Convolucion/Resources/top.cpp:47) because its parent loop or function is pipelined.
+WARNING: [XFORM 203-505] Ignored pipeline directive for loop 'convolution2' (Convolucion/Resources/top.cpp:61) because its parent loop or function is pipelined.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.1' (Convolucion/Resources/top.cpp:18) in function 'img_filter' completely with a factor of 637.
+INFO: [HLS 200-489] Unrolling loop 'Loop-2.1' (Convolucion/Resources/top.cpp:25) in function 'img_filter' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'wind_data_move1' (Convolucion/Resources/top.cpp:46) in function 'img_filter' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'wind_data_move' (Convolucion/Resources/top.cpp:47) in function 'img_filter' completely with a factor of 2.
+INFO: [HLS 200-489] Unrolling loop 'convolution1' (Convolucion/Resources/top.cpp:60) in function 'img_filter' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'convolution2' (Convolucion/Resources/top.cpp:61) in function 'img_filter' completely with a factor of 3.
+INFO: [XFORM 203-102] Automatically partitioning streamed array 'line_buffer.V.V' (Convolucion/Resources/top.cpp:8) .
+INFO: [XFORM 203-101] Partitioning array 'conv_window.V' (Convolucion/Resources/top.cpp:9) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'line_buffer.V.V' (Convolucion/Resources/top.cpp:8) in dimension 1 completely.
+INFO: [XFORM 203-102] Automatically partitioning small array 'conv_window.V.0' (Convolucion/Resources/top.cpp:9) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'conv_window.V.1' (Convolucion/Resources/top.cpp:9) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'conv_window.V.2' (Convolucion/Resources/top.cpp:9) completely based on array size.
+INFO: [XFORM 203-101] Partitioning array 'conv_window.V.0' (Convolucion/Resources/top.cpp:9) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'conv_window.V.1' (Convolucion/Resources/top.cpp:9) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'conv_window.V.2' (Convolucion/Resources/top.cpp:9) in dimension 1 completely.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:01:04 ; elapsed = 00:01:26 . Memory (MB): peak = 314.871 ; gain = 230.094
+INFO: [XFORM 203-541] Flattening a loop nest 'Loop-3' (Convolucion/Resources/top.cpp:33:7) in function 'img_filter'.
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:02:31 ; elapsed = 00:02:53 . Memory (MB): peak = 659.137 ; gain = 574.359
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'img_filter' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'img_filter' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'Buffer_padding'.
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 3, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 4, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 130, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 193, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 225, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 241, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 249, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 253, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 255, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 256, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+INFO: [SCHED 204-61] Unable to satisfy pipeline directive: Unable to pipeline the region.
+INFO: [SCHED 204-61] Pipelining loop 'conv_windows_padding'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 1.
+INFO: [SCHED 204-61] Pipelining loop 'L_convolution'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 3.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 402.529 seconds; current allocated memory: 1014.710 MB.
+INFO: [HLS 200-434] Only 2 loops out of a total 3 loops have been pipelined in this design.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 25.639 seconds; current allocated memory: 1022.043 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'img_filter' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/in_V_data_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/in_V_keep_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/in_V_strb_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/in_V_user_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/in_V_last_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/in_V_id_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/in_V_dest_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/out_V_data_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/out_V_keep_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/out_V_strb_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/out_V_user_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/out_V_last_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/out_V_id_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/out_V_dest_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on function 'img_filter' to 's_axilite & ap_ctrl_hs'.
+INFO: [RTGEN 206-100] Bundling port 'return' to AXI-Lite port CONTROL_BUS.
+INFO: [SYN 201-210] Renamed object name 'img_filter_mux_42_32_1_1' to 'img_filter_mux_42bkb' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'img_filter_am_addmul_8ns_9ns_12ns_22_1_1' to 'img_filter_am_addcud' due to the length limit 20
+INFO: [RTGEN 206-100] Generating core module 'img_filter_am_addcud': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'img_filter_mux_42bkb': 5 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'img_filter'.
+INFO: [HLS 200-111]  Elapsed time: 17.313 seconds; current allocated memory: 1.027 GB.
+INFO: [RTMG 210-285] Implementing FIFO 'line_buffer_0_V_V_U(fifo_w8_d640_A)' using Block RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'line_buffer_1_V_V_U(fifo_w8_d640_A)' using Block RAMs.
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:07:18 ; elapsed = 00:07:56 . Memory (MB): peak = 2038.895 ; gain = 1954.117
+INFO: [SYSC 207-301] Generating SystemC RTL for img_filter.
+INFO: [VHDL 208-304] Generating VHDL RTL for img_filter.
+INFO: [VLOG 209-307] Generating Verilog RTL for img_filter.
+INFO: [HLS 200-112] Total elapsed time: 477.507 seconds; peak allocated memory: 1.027 GB.
+==============================================================
+File generated on Fri Jan 01 19:12:18 +0100 2021
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2018.3 (64-bit)
+SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xczu3eg-sbva484-1-e'
+INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
+WARNING: [HLS 200-40] Skipped source file 'car.bmp'. Source files must have extensions .c, .C, .cc, .cpp, .c++, .cp, or .cxx.
+INFO: [HLS 200-10] Analyzing design file 'Convolucion/Resources/top.cpp' ... 
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:02 ; elapsed = 00:00:21 . Memory (MB): peak = 104.219 ; gain = 19.734
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:02 ; elapsed = 00:00:21 . Memory (MB): peak = 104.219 ; gain = 19.734
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [XFORM 203-603] Inlining function 'push_stream' into 'img_filter'.
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:02 ; elapsed = 00:00:23 . Memory (MB): peak = 151.992 ; gain = 67.508
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:02 ; elapsed = 00:00:23 . Memory (MB): peak = 186.938 ; gain = 102.453
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'Buffer_padding' (Convolucion/Resources/top.cpp:17) in function 'img_filter' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'conv_windows_padding' (Convolucion/Resources/top.cpp:24) in function 'img_filter' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'convolution' (Convolucion/Resources/top.cpp:34) in function 'img_filter' for pipelining.
+WARNING: [XFORM 203-505] Ignored pipeline directive for loop 'wind_data_move1' (Convolucion/Resources/top.cpp:46) because its parent loop or function is pipelined.
+WARNING: [XFORM 203-505] Ignored pipeline directive for loop 'wind_data_move' (Convolucion/Resources/top.cpp:47) because its parent loop or function is pipelined.
+WARNING: [XFORM 203-505] Ignored pipeline directive for loop 'convolution2' (Convolucion/Resources/top.cpp:61) because its parent loop or function is pipelined.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.1' (Convolucion/Resources/top.cpp:18) in function 'img_filter' completely with a factor of 637.
+INFO: [HLS 200-489] Unrolling loop 'Loop-2.1' (Convolucion/Resources/top.cpp:25) in function 'img_filter' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'wind_data_move1' (Convolucion/Resources/top.cpp:46) in function 'img_filter' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'wind_data_move' (Convolucion/Resources/top.cpp:47) in function 'img_filter' completely with a factor of 2.
+INFO: [HLS 200-489] Unrolling loop 'convolution1' (Convolucion/Resources/top.cpp:60) in function 'img_filter' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'convolution2' (Convolucion/Resources/top.cpp:61) in function 'img_filter' completely with a factor of 3.
+INFO: [XFORM 203-102] Automatically partitioning streamed array 'line_buffer.V.V' (Convolucion/Resources/top.cpp:8) .
+INFO: [XFORM 203-101] Partitioning array 'conv_window.V' (Convolucion/Resources/top.cpp:9) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'line_buffer.V.V' (Convolucion/Resources/top.cpp:8) in dimension 1 completely.
+INFO: [XFORM 203-102] Automatically partitioning small array 'conv_window.V.0' (Convolucion/Resources/top.cpp:9) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'conv_window.V.1' (Convolucion/Resources/top.cpp:9) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'conv_window.V.2' (Convolucion/Resources/top.cpp:9) completely based on array size.
+INFO: [XFORM 203-101] Partitioning array 'conv_window.V.0' (Convolucion/Resources/top.cpp:9) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'conv_window.V.1' (Convolucion/Resources/top.cpp:9) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'conv_window.V.2' (Convolucion/Resources/top.cpp:9) in dimension 1 completely.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:01:05 ; elapsed = 00:01:26 . Memory (MB): peak = 314.992 ; gain = 230.508
+INFO: [XFORM 203-541] Flattening a loop nest 'Loop-3' (Convolucion/Resources/top.cpp:33:7) in function 'img_filter'.
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:02:33 ; elapsed = 00:02:55 . Memory (MB): peak = 659.340 ; gain = 574.855
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'img_filter' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'img_filter' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'Buffer_padding'.
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 3, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 4, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 130, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 193, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 225, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 241, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 249, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 253, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 255, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+WARNING: [SCHED 204-68] The II Violation in module 'img_filter': Unable to enforce a carried dependence constraint (II = 256, distance = 1, offset = 1)
+   between fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) and fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19).
+INFO: [SCHED 204-61] Unable to satisfy pipeline directive: Unable to pipeline the region.
+INFO: [SCHED 204-61] Pipelining loop 'conv_windows_padding'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 1.
+INFO: [SCHED 204-61] Pipelining loop 'L_convolution'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 3.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 414.72 seconds; current allocated memory: 1014.710 MB.
+INFO: [HLS 200-434] Only 2 loops out of a total 3 loops have been pipelined in this design.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 25.149 seconds; current allocated memory: 1022.043 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'img_filter' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/in_V_data_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/in_V_keep_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/in_V_strb_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/in_V_user_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/in_V_last_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/in_V_id_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/in_V_dest_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/out_V_data_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/out_V_keep_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/out_V_strb_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/out_V_user_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/out_V_last_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/out_V_id_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'img_filter/out_V_dest_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on function 'img_filter' to 's_axilite & ap_ctrl_hs'.
+INFO: [RTGEN 206-100] Bundling port 'return' to AXI-Lite port CONTROL_BUS.
+INFO: [SYN 201-210] Renamed object name 'img_filter_mux_42_32_1_1' to 'img_filter_mux_42bkb' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'img_filter_am_addmul_8ns_9ns_12ns_22_1_1' to 'img_filter_am_addcud' due to the length limit 20
+INFO: [RTGEN 206-100] Generating core module 'img_filter_am_addcud': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'img_filter_mux_42bkb': 5 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'img_filter'.
+INFO: [HLS 200-111]  Elapsed time: 16.3 seconds; current allocated memory: 1.027 GB.
+INFO: [RTMG 210-285] Implementing FIFO 'line_buffer_0_V_V_U(fifo_w8_d640_A)' using Block RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'line_buffer_1_V_V_U(fifo_w8_d640_A)' using Block RAMs.
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:07:28 ; elapsed = 00:08:04 . Memory (MB): peak = 2062.586 ; gain = 1978.102
+INFO: [SYSC 207-301] Generating SystemC RTL for img_filter.
+INFO: [VHDL 208-304] Generating VHDL RTL for img_filter.
+INFO: [VLOG 209-307] Generating Verilog RTL for img_filter.
+INFO: [HLS 200-112] Total elapsed time: 485.6 seconds; peak allocated memory: 1.027 GB.
+==============================================================
+File generated on Fri Jan 01 19:32:46 +0100 2021
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2018.3 (64-bit)
+SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xczu3eg-sbva484-1-e'
+INFO: [IMPL 213-8] Exporting RTL as a Vivado IP.
+==============================================================
+File generated on Fri Jan 01 19:33:21 +0100 2021
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2018.3 (64-bit)
+SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xczu3eg-sbva484-1-e'
+INFO: [IMPL 213-8] Exporting RTL as a Vivado IP.

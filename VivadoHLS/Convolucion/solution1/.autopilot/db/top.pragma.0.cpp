@@ -32234,15 +32234,18 @@ void img_filter(AXI_STREAM& in, AXI_STREAM& out);
 
 
 void img_filter(AXI_STREAM& in, AXI_STREAM& out) {
+#pragma HLS INTERFACE axis port=&in
+#pragma HLS INTERFACE axis port=&out
+#pragma HLS INTERFACE s_axilite port=return bundle=CONTROL_BUS
  hls::stream<pixel_gray_t> line_buffer[3 -1];
-#pragma HLS STREAM variable=&line_buffer depth=480 dim=1
-# 5 "Convolucion/Resources/top.cpp"
+#pragma HLS STREAM variable=&line_buffer depth=640 dim=2
+# 8 "Convolucion/Resources/top.cpp"
 
  ap_int<32> conv_window[3][3];
 
  const ap_int<4> kernel[3*3] = {0,1,0,1,-4,1,0,1,0};
 _ssdm_SpecConstant(kernel);
-# 8 "Convolucion/Resources/top.cpp"
+# 11 "Convolucion/Resources/top.cpp"
 
  int row,col;
  ap_int<32> conv_result;
@@ -32306,7 +32309,7 @@ _ssdm_SpecConstant(kernel);
    conv_result = 0;
   }
  }
-# 85 "Convolucion/Resources/top.cpp"
+# 88 "Convolucion/Resources/top.cpp"
 }
 
 AXI_VAL push_stream(pixel_rgb_t const &v, bool last = false)

@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'img_filter'
 ================================================================
-* Date:           Mon Dec 14 11:51:27 2020
+* Date:           Tue Dec 15 12:01:51 2020
 
 * Version:        2018.3 (Build 2405991 on Thu Dec 06 23:56:15 MST 2018)
 * Project:        Convolucion
@@ -20,7 +20,7 @@
     +--------+-------+----------+------------+
     |  Clock | Target| Estimated| Uncertainty|
     +--------+-------+----------+------------+
-    |ap_clk  |  10.00|     5.920|        1.25|
+    |ap_clk  |  10.00|     4.198|        1.25|
     +--------+-------+----------+------------+
 
 + Latency (clock cycles): 
@@ -29,7 +29,7 @@
     |       Latency       |       Interval      | Pipeline|
     |    min   |    max   |    min   |    max   |   Type  |
     +----------+----------+----------+----------+---------+
-    |  14747856|  14747856|  14747856|  14747856|   none  |
+    |  15055056|  15055056|  15055056|  15055056|   none  |
     +----------+----------+----------+----------+---------+
 
     + Detail: 
@@ -45,8 +45,8 @@
         | + Loop 1.1          |       637|       637|         1|          -|          -|   637|    no    |
         |- Loop 2             |        15|        15|         5|          -|          -|     3|    no    |
         | + Loop 2.1          |         3|         3|         1|          -|          -|     3|    no    |
-        |- Loop 3             |  14746560|  14746560|     30722|          -|          -|   480|    no    |
-        | + Loop 3.1          |     30720|     30720|        48|          -|          -|   640|    no    |
+        |- Loop 3             |  15053760|  15053760|     31362|          -|          -|   480|    no    |
+        | + Loop 3.1          |     31360|     31360|        49|          -|          -|   640|    no    |
         |  ++ Loop 3.1.1      |        21|        21|         7|          -|          -|     3|    no    |
         |   +++ Loop 3.1.1.1  |         4|         4|         2|          -|          -|     2|    no    |
         |  ++ Loop 3.1.2      |        24|        24|         8|          -|          -|     3|    no    |
@@ -79,7 +79,7 @@ IsGatedGlobalClock: 0
 ============================================================
 + Verbose Summary: Schedule
 ============================================================
-* Number of FSM states : 14
+* Number of FSM states : 15
 * Pipeline : 0
 * Dataflow Pipeline: 0
 
@@ -114,259 +114,253 @@ IsGatedGlobalClock: 0
 11 --> 
 	8  / true
 12 --> 
+	15  / (exitcond8)
 	13  / (!exitcond8)
-	7  / (exitcond8)
 13 --> 
 	14  / (!exitcond)
 	12  / (exitcond)
 14 --> 
 	13  / true
+15 --> 
+	7  / true
 
 * FSM state operations: 
 
 State 1 <SV = 0> <Delay = 0.75>
-ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecInterface(i1* %out_V_dest_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 15 'specinterface' 'empty' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%empty_13 = call i32 (...)* @_ssdm_op_SpecInterface(i1* %out_V_id_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 16 'specinterface' 'empty_13' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%empty_14 = call i32 (...)* @_ssdm_op_SpecInterface(i1* %out_V_last_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 17 'specinterface' 'empty_14' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%empty_15 = call i32 (...)* @_ssdm_op_SpecInterface(i1* %out_V_user_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 18 'specinterface' 'empty_15' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%empty_16 = call i32 (...)* @_ssdm_op_SpecInterface(i3* %out_V_strb_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 19 'specinterface' 'empty_16' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 20 [1/1] (0.00ns)   --->   "%empty_17 = call i32 (...)* @_ssdm_op_SpecInterface(i3* %out_V_keep_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 20 'specinterface' 'empty_17' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 21 [1/1] (0.00ns)   --->   "%empty_18 = call i32 (...)* @_ssdm_op_SpecInterface(i24* %out_V_data_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 21 'specinterface' 'empty_18' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 22 [1/1] (0.00ns)   --->   "%empty_19 = call i32 (...)* @_ssdm_op_SpecInterface(i1* %in_V_dest_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 22 'specinterface' 'empty_19' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 23 [1/1] (0.00ns)   --->   "%empty_20 = call i32 (...)* @_ssdm_op_SpecInterface(i1* %in_V_id_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 23 'specinterface' 'empty_20' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 24 [1/1] (0.00ns)   --->   "%empty_21 = call i32 (...)* @_ssdm_op_SpecInterface(i1* %in_V_last_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 24 'specinterface' 'empty_21' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 25 [1/1] (0.00ns)   --->   "%empty_22 = call i32 (...)* @_ssdm_op_SpecInterface(i1* %in_V_user_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 25 'specinterface' 'empty_22' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 26 [1/1] (0.00ns)   --->   "%empty_23 = call i32 (...)* @_ssdm_op_SpecInterface(i3* %in_V_strb_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 26 'specinterface' 'empty_23' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 27 [1/1] (0.00ns)   --->   "%empty_24 = call i32 (...)* @_ssdm_op_SpecInterface(i3* %in_V_keep_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 27 'specinterface' 'empty_24' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 28 [1/1] (0.00ns)   --->   "%empty_25 = call i32 (...)* @_ssdm_op_SpecInterface(i24* %in_V_data_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 28 'specinterface' 'empty_25' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 29 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i24* %in_V_data_V), !map !127"   --->   Operation 29 'specbitsmap' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 30 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i3* %in_V_keep_V), !map !131"   --->   Operation 30 'specbitsmap' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 31 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i3* %in_V_strb_V), !map !135"   --->   Operation 31 'specbitsmap' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 32 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %in_V_user_V), !map !139"   --->   Operation 32 'specbitsmap' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 33 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %in_V_last_V), !map !143"   --->   Operation 33 'specbitsmap' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 34 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %in_V_id_V), !map !147"   --->   Operation 34 'specbitsmap' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 35 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %in_V_dest_V), !map !151"   --->   Operation 35 'specbitsmap' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 36 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i24* %out_V_data_V), !map !155"   --->   Operation 36 'specbitsmap' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 37 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i3* %out_V_keep_V), !map !159"   --->   Operation 37 'specbitsmap' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 38 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i3* %out_V_strb_V), !map !163"   --->   Operation 38 'specbitsmap' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 39 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %out_V_user_V), !map !167"   --->   Operation 39 'specbitsmap' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 40 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %out_V_last_V), !map !171"   --->   Operation 40 'specbitsmap' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 41 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %out_V_id_V), !map !175"   --->   Operation 41 'specbitsmap' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 42 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %out_V_dest_V), !map !179"   --->   Operation 42 'specbitsmap' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 43 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecTopModule([11 x i8]* @img_filter_str) nounwind"   --->   Operation 43 'spectopmodule' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 44 [1/1] (0.00ns)   --->   "%line_buffer_0_V_V = alloca i8, align 1" [Convolucion/Resources/top.cpp:5]   --->   Operation 44 'alloca' 'line_buffer_0_V_V' <Predicate = true> <Delay = 0.00> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 1.89> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 480> <FIFO>
-ST_1 : Operation 45 [1/1] (0.00ns)   --->   "%empty_26 = call i32 (...)* @_ssdm_op_SpecChannel([19 x i8]* @line_buffer_LF_0_NF_s, i32 1, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 480, i32 480, i8* %line_buffer_0_V_V, i8* %line_buffer_0_V_V)"   --->   Operation 45 'specchannel' 'empty_26' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 46 [1/1] (0.00ns)   --->   "%empty_27 = call i32 (...)* @_ssdm_op_SpecInterface(i8* %line_buffer_0_V_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 46 'specinterface' 'empty_27' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 47 [1/1] (0.00ns)   --->   "%line_buffer_1_V_V = alloca i8, align 1" [Convolucion/Resources/top.cpp:5]   --->   Operation 47 'alloca' 'line_buffer_1_V_V' <Predicate = true> <Delay = 0.00> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 1.89> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 480> <FIFO>
-ST_1 : Operation 48 [1/1] (0.00ns)   --->   "%empty_28 = call i32 (...)* @_ssdm_op_SpecChannel([19 x i8]* @line_buffer_LF_1_NF_s, i32 1, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 480, i32 480, i8* %line_buffer_1_V_V, i8* %line_buffer_1_V_V)"   --->   Operation 48 'specchannel' 'empty_28' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 49 [1/1] (0.00ns)   --->   "%empty_29 = call i32 (...)* @_ssdm_op_SpecInterface(i8* %line_buffer_1_V_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 49 'specinterface' 'empty_29' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 50 [1/1] (0.00ns)   --->   "%conv_window_V = alloca [9 x i8], align 1" [Convolucion/Resources/top.cpp:6]   --->   Operation 50 'alloca' 'conv_window_V' <Predicate = true> <Delay = 0.00> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.79> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 9> <RAM>
-ST_1 : Operation 51 [1/1] (0.00ns)   --->   "%conv_window_V_addr = getelementptr [9 x i8]* %conv_window_V, i64 0, i64 8" [Convolucion/Resources/top.cpp:54]   --->   Operation 51 'getelementptr' 'conv_window_V_addr' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 52 [1/1] (0.75ns)   --->   "br label %.loopexit19" [Convolucion/Resources/top.cpp:14]   --->   Operation 52 'br' <Predicate = true> <Delay = 0.75>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i24* %in_V_data_V), !map !127"   --->   Operation 16 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i3* %in_V_keep_V), !map !131"   --->   Operation 17 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i3* %in_V_strb_V), !map !135"   --->   Operation 18 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %in_V_user_V), !map !139"   --->   Operation 19 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 20 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %in_V_last_V), !map !143"   --->   Operation 20 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 21 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %in_V_id_V), !map !147"   --->   Operation 21 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 22 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %in_V_dest_V), !map !151"   --->   Operation 22 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 23 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i24* %out_V_data_V), !map !155"   --->   Operation 23 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 24 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i3* %out_V_keep_V), !map !159"   --->   Operation 24 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 25 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i3* %out_V_strb_V), !map !163"   --->   Operation 25 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 26 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %out_V_user_V), !map !167"   --->   Operation 26 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 27 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %out_V_last_V), !map !171"   --->   Operation 27 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 28 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %out_V_id_V), !map !175"   --->   Operation 28 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 29 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %out_V_dest_V), !map !179"   --->   Operation 29 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 30 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecTopModule([11 x i8]* @img_filter_str) nounwind"   --->   Operation 30 'spectopmodule' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 31 [1/1] (0.00ns)   --->   "%line_buffer_0_V_V = alloca i8, align 1" [Convolucion/Resources/top.cpp:8]   --->   Operation 31 'alloca' 'line_buffer_0_V_V' <Predicate = true> <Delay = 0.00> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 1.99> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 640> <FIFO>
+ST_1 : Operation 32 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecChannel([19 x i8]* @line_buffer_LF_0_NF_s, i32 1, [1 x i8]* @p_str25, [1 x i8]* @p_str25, i32 640, i32 640, i8* %line_buffer_0_V_V, i8* %line_buffer_0_V_V)"   --->   Operation 32 'specchannel' 'empty' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 33 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i8* %line_buffer_0_V_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str26, i32 0, i32 0, [1 x i8]* @p_str27, [1 x i8]* @p_str28, [1 x i8]* @p_str29, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str30, [1 x i8]* @p_str31)"   --->   Operation 33 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 34 [1/1] (0.00ns)   --->   "%line_buffer_1_V_V = alloca i8, align 1" [Convolucion/Resources/top.cpp:8]   --->   Operation 34 'alloca' 'line_buffer_1_V_V' <Predicate = true> <Delay = 0.00> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 1.99> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 640> <FIFO>
+ST_1 : Operation 35 [1/1] (0.00ns)   --->   "%empty_10 = call i32 (...)* @_ssdm_op_SpecChannel([19 x i8]* @line_buffer_LF_1_NF_s, i32 1, [1 x i8]* @p_str32, [1 x i8]* @p_str32, i32 640, i32 640, i8* %line_buffer_1_V_V, i8* %line_buffer_1_V_V)"   --->   Operation 35 'specchannel' 'empty_10' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 36 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i8* %line_buffer_1_V_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str33, i32 0, i32 0, [1 x i8]* @p_str34, [1 x i8]* @p_str35, [1 x i8]* @p_str36, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str37, [1 x i8]* @p_str38)"   --->   Operation 36 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 37 [1/1] (0.00ns)   --->   "%conv_window_V = alloca [9 x i8], align 1" [Convolucion/Resources/top.cpp:9]   --->   Operation 37 'alloca' 'conv_window_V' <Predicate = true> <Delay = 0.00> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.79> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 9> <RAM>
+ST_1 : Operation 38 [1/1] (0.00ns)   --->   "%conv_window_V_addr = getelementptr [9 x i8]* %conv_window_V, i64 0, i64 8" [Convolucion/Resources/top.cpp:57]   --->   Operation 38 'getelementptr' 'conv_window_V_addr' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 39 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i24* %in_V_data_V, i3* %in_V_keep_V, i3* %in_V_strb_V, i1* %in_V_user_V, i1* %in_V_last_V, i1* %in_V_id_V, i1* %in_V_dest_V, [5 x i8]* @p_str, i32 1, i32 1, [5 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2, [1 x i8]* @p_str2, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2) nounwind" [Convolucion/Resources/top.cpp:5]   --->   Operation 39 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 40 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i24* %out_V_data_V, i3* %out_V_keep_V, i3* %out_V_strb_V, i1* %out_V_user_V, i1* %out_V_last_V, i1* %out_V_id_V, i1* %out_V_dest_V, [5 x i8]* @p_str, i32 1, i32 1, [5 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2, [1 x i8]* @p_str2, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2) nounwind" [Convolucion/Resources/top.cpp:6]   --->   Operation 40 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 41 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32 0, [10 x i8]* @p_str3, i32 0, i32 0, [1 x i8]* @p_str2, i32 0, i32 0, [12 x i8]* @p_str4, [1 x i8]* @p_str2, [1 x i8]* @p_str2, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2) nounwind" [Convolucion/Resources/top.cpp:7]   --->   Operation 41 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 42 [1/1] (0.75ns)   --->   "br label %.loopexit19" [Convolucion/Resources/top.cpp:17]   --->   Operation 42 'br' <Predicate = true> <Delay = 0.75>
 
 State 2 <SV = 1> <Delay = 0.75>
-ST_2 : Operation 53 [1/1] (0.00ns)   --->   "%i = phi i2 [ 0, %0 ], [ %i_1, %.loopexit19.loopexit ]"   --->   Operation 53 'phi' 'i' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 54 [1/1] (0.51ns)   --->   "%exitcond1 = icmp eq i2 %i, -2" [Convolucion/Resources/top.cpp:14]   --->   Operation 54 'icmp' 'exitcond1' <Predicate = true> <Delay = 0.51> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.85> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 55 [1/1] (0.00ns)   --->   "%empty_30 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 2, i64 2, i64 2)"   --->   Operation 55 'speclooptripcount' 'empty_30' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 56 [1/1] (0.62ns)   --->   "%i_1 = add i2 %i, 1" [Convolucion/Resources/top.cpp:14]   --->   Operation 56 'add' 'i_1' <Predicate = true> <Delay = 0.62> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 57 [1/1] (0.00ns)   --->   "br i1 %exitcond1, label %.preheader555.preheader, label %.preheader556.preheader" [Convolucion/Resources/top.cpp:14]   --->   Operation 57 'br' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 58 [1/1] (0.00ns)   --->   "%tmp = trunc i2 %i to i1" [Convolucion/Resources/top.cpp:16]   --->   Operation 58 'trunc' 'tmp' <Predicate = (!exitcond1)> <Delay = 0.00>
-ST_2 : Operation 59 [1/1] (0.75ns)   --->   "br label %.preheader556" [Convolucion/Resources/top.cpp:15]   --->   Operation 59 'br' <Predicate = (!exitcond1)> <Delay = 0.75>
-ST_2 : Operation 60 [1/1] (0.75ns)   --->   "br label %.preheader555" [Convolucion/Resources/top.cpp:21]   --->   Operation 60 'br' <Predicate = (exitcond1)> <Delay = 0.75>
+ST_2 : Operation 43 [1/1] (0.00ns)   --->   "%i = phi i2 [ 0, %0 ], [ %i_1, %.loopexit19.loopexit ]"   --->   Operation 43 'phi' 'i' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 44 [1/1] (0.51ns)   --->   "%exitcond1 = icmp eq i2 %i, -2" [Convolucion/Resources/top.cpp:17]   --->   Operation 44 'icmp' 'exitcond1' <Predicate = true> <Delay = 0.51> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.85> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 45 [1/1] (0.00ns)   --->   "%empty_11 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 2, i64 2, i64 2)"   --->   Operation 45 'speclooptripcount' 'empty_11' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 46 [1/1] (0.62ns)   --->   "%i_1 = add i2 %i, 1" [Convolucion/Resources/top.cpp:17]   --->   Operation 46 'add' 'i_1' <Predicate = true> <Delay = 0.62> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 47 [1/1] (0.00ns)   --->   "br i1 %exitcond1, label %.preheader555.preheader, label %.preheader556.preheader" [Convolucion/Resources/top.cpp:17]   --->   Operation 47 'br' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 48 [1/1] (0.00ns)   --->   "%tmp = trunc i2 %i to i1" [Convolucion/Resources/top.cpp:19]   --->   Operation 48 'trunc' 'tmp' <Predicate = (!exitcond1)> <Delay = 0.00>
+ST_2 : Operation 49 [1/1] (0.75ns)   --->   "br label %.preheader556" [Convolucion/Resources/top.cpp:18]   --->   Operation 49 'br' <Predicate = (!exitcond1)> <Delay = 0.75>
+ST_2 : Operation 50 [1/1] (0.75ns)   --->   "br label %.preheader555" [Convolucion/Resources/top.cpp:24]   --->   Operation 50 'br' <Predicate = (exitcond1)> <Delay = 0.75>
 
-State 3 <SV = 2> <Delay = 1.89>
-ST_3 : Operation 61 [1/1] (0.00ns)   --->   "%j = phi i10 [ %j_1, %2 ], [ 0, %.preheader556.preheader ]"   --->   Operation 61 'phi' 'j' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 62 [1/1] (0.85ns)   --->   "%exitcond3 = icmp eq i10 %j, -387" [Convolucion/Resources/top.cpp:15]   --->   Operation 62 'icmp' 'exitcond3' <Predicate = true> <Delay = 0.85> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.85> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 63 [1/1] (0.00ns)   --->   "%empty_31 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 637, i64 637, i64 637)"   --->   Operation 63 'speclooptripcount' 'empty_31' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 64 [1/1] (0.93ns)   --->   "%j_1 = add i10 %j, 1" [Convolucion/Resources/top.cpp:15]   --->   Operation 64 'add' 'j_1' <Predicate = true> <Delay = 0.93> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 65 [1/1] (0.00ns)   --->   "br i1 %exitcond3, label %.loopexit19.loopexit, label %1" [Convolucion/Resources/top.cpp:15]   --->   Operation 65 'br' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 66 [1/1] (0.00ns)   --->   "br i1 %tmp, label %branch5, label %branch4" [Convolucion/Resources/top.cpp:16]   --->   Operation 66 'br' <Predicate = (!exitcond3)> <Delay = 0.00>
-ST_3 : Operation 67 [1/1] (1.89ns)   --->   "call void @_ssdm_op_Write.ap_fifo.volatile.i8P(i8* %line_buffer_0_V_V, i8 0)" [Convolucion/Resources/top.cpp:16]   --->   Operation 67 'write' <Predicate = (!exitcond3 & !tmp)> <Delay = 1.89> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 1.89> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 480> <FIFO>
-ST_3 : Operation 68 [1/1] (0.00ns)   --->   "br label %2" [Convolucion/Resources/top.cpp:16]   --->   Operation 68 'br' <Predicate = (!exitcond3 & !tmp)> <Delay = 0.00>
-ST_3 : Operation 69 [1/1] (1.89ns)   --->   "call void @_ssdm_op_Write.ap_fifo.volatile.i8P(i8* %line_buffer_1_V_V, i8 0)" [Convolucion/Resources/top.cpp:16]   --->   Operation 69 'write' <Predicate = (!exitcond3 & tmp)> <Delay = 1.89> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 1.89> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 480> <FIFO>
-ST_3 : Operation 70 [1/1] (0.00ns)   --->   "br label %2" [Convolucion/Resources/top.cpp:16]   --->   Operation 70 'br' <Predicate = (!exitcond3 & tmp)> <Delay = 0.00>
-ST_3 : Operation 71 [1/1] (0.00ns)   --->   "br label %.preheader556" [Convolucion/Resources/top.cpp:15]   --->   Operation 71 'br' <Predicate = (!exitcond3)> <Delay = 0.00>
-ST_3 : Operation 72 [1/1] (0.00ns)   --->   "br label %.loopexit19"   --->   Operation 72 'br' <Predicate = (exitcond3)> <Delay = 0.00>
+State 3 <SV = 2> <Delay = 1.99>
+ST_3 : Operation 51 [1/1] (0.00ns)   --->   "%j = phi i10 [ %j_1, %2 ], [ 0, %.preheader556.preheader ]"   --->   Operation 51 'phi' 'j' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 52 [1/1] (0.85ns)   --->   "%exitcond3 = icmp eq i10 %j, -387" [Convolucion/Resources/top.cpp:18]   --->   Operation 52 'icmp' 'exitcond3' <Predicate = true> <Delay = 0.85> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.85> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 53 [1/1] (0.00ns)   --->   "%empty_12 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 637, i64 637, i64 637)"   --->   Operation 53 'speclooptripcount' 'empty_12' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 54 [1/1] (0.93ns)   --->   "%j_1 = add i10 %j, 1" [Convolucion/Resources/top.cpp:18]   --->   Operation 54 'add' 'j_1' <Predicate = true> <Delay = 0.93> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 55 [1/1] (0.00ns)   --->   "br i1 %exitcond3, label %.loopexit19.loopexit, label %1" [Convolucion/Resources/top.cpp:18]   --->   Operation 55 'br' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 56 [1/1] (0.00ns)   --->   "br i1 %tmp, label %branch5, label %branch4" [Convolucion/Resources/top.cpp:19]   --->   Operation 56 'br' <Predicate = (!exitcond3)> <Delay = 0.00>
+ST_3 : Operation 57 [1/1] (1.99ns)   --->   "call void @_ssdm_op_Write.ap_fifo.volatile.i8P(i8* %line_buffer_0_V_V, i8 0)" [Convolucion/Resources/top.cpp:19]   --->   Operation 57 'write' <Predicate = (!exitcond3 & !tmp)> <Delay = 1.99> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 1.99> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 640> <FIFO>
+ST_3 : Operation 58 [1/1] (0.00ns)   --->   "br label %2" [Convolucion/Resources/top.cpp:19]   --->   Operation 58 'br' <Predicate = (!exitcond3 & !tmp)> <Delay = 0.00>
+ST_3 : Operation 59 [1/1] (1.99ns)   --->   "call void @_ssdm_op_Write.ap_fifo.volatile.i8P(i8* %line_buffer_1_V_V, i8 0)" [Convolucion/Resources/top.cpp:19]   --->   Operation 59 'write' <Predicate = (!exitcond3 & tmp)> <Delay = 1.99> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 1.99> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 640> <FIFO>
+ST_3 : Operation 60 [1/1] (0.00ns)   --->   "br label %2" [Convolucion/Resources/top.cpp:19]   --->   Operation 60 'br' <Predicate = (!exitcond3 & tmp)> <Delay = 0.00>
+ST_3 : Operation 61 [1/1] (0.00ns)   --->   "br label %.preheader556" [Convolucion/Resources/top.cpp:18]   --->   Operation 61 'br' <Predicate = (!exitcond3)> <Delay = 0.00>
+ST_3 : Operation 62 [1/1] (0.00ns)   --->   "br label %.loopexit19"   --->   Operation 62 'br' <Predicate = (exitcond3)> <Delay = 0.00>
 
 State 4 <SV = 2> <Delay = 0.86>
-ST_4 : Operation 73 [1/1] (0.00ns)   --->   "%i5 = phi i2 [ %i_2, %.preheader555.loopexit ], [ 0, %.preheader555.preheader ]"   --->   Operation 73 'phi' 'i5' <Predicate = true> <Delay = 0.00>
-ST_4 : Operation 74 [1/1] (0.51ns)   --->   "%exitcond2 = icmp eq i2 %i5, -1" [Convolucion/Resources/top.cpp:21]   --->   Operation 74 'icmp' 'exitcond2' <Predicate = true> <Delay = 0.51> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.85> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_4 : Operation 75 [1/1] (0.00ns)   --->   "%empty_32 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 3, i64 3, i64 3)"   --->   Operation 75 'speclooptripcount' 'empty_32' <Predicate = true> <Delay = 0.00>
-ST_4 : Operation 76 [1/1] (0.62ns)   --->   "%i_2 = add i2 %i5, 1" [Convolucion/Resources/top.cpp:21]   --->   Operation 76 'add' 'i_2' <Predicate = true> <Delay = 0.62> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_4 : Operation 77 [1/1] (0.00ns)   --->   "br i1 %exitcond2, label %.preheader553.preheader, label %.preheader554.preheader" [Convolucion/Resources/top.cpp:21]   --->   Operation 77 'br' <Predicate = true> <Delay = 0.00>
-ST_4 : Operation 78 [1/1] (0.00ns)   --->   "%tmp_1_cast = zext i2 %i5 to i5" [Convolucion/Resources/top.cpp:21]   --->   Operation 78 'zext' 'tmp_1_cast' <Predicate = (!exitcond2)> <Delay = 0.00>
-ST_4 : Operation 79 [1/1] (0.00ns)   --->   "%tmp_s = call i4 @_ssdm_op_BitConcatenate.i4.i2.i2(i2 %i5, i2 0)" [Convolucion/Resources/top.cpp:21]   --->   Operation 79 'bitconcatenate' 'tmp_s' <Predicate = (!exitcond2)> <Delay = 0.00>
-ST_4 : Operation 80 [1/1] (0.00ns)   --->   "%p_shl1_cast = zext i4 %tmp_s to i5" [Convolucion/Resources/top.cpp:23]   --->   Operation 80 'zext' 'p_shl1_cast' <Predicate = (!exitcond2)> <Delay = 0.00>
-ST_4 : Operation 81 [1/1] (0.86ns)   --->   "%tmp_1 = sub i5 %p_shl1_cast, %tmp_1_cast" [Convolucion/Resources/top.cpp:23]   --->   Operation 81 'sub' 'tmp_1' <Predicate = (!exitcond2)> <Delay = 0.86> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_4 : Operation 82 [1/1] (0.75ns)   --->   "br label %.preheader554" [Convolucion/Resources/top.cpp:22]   --->   Operation 82 'br' <Predicate = (!exitcond2)> <Delay = 0.75>
-ST_4 : Operation 83 [1/1] (0.00ns)   --->   "%p_s = alloca i32"   --->   Operation 83 'alloca' 'p_s' <Predicate = (exitcond2)> <Delay = 0.00>
-ST_4 : Operation 84 [1/1] (0.75ns)   --->   "br label %.preheader553" [Convolucion/Resources/top.cpp:30]   --->   Operation 84 'br' <Predicate = (exitcond2)> <Delay = 0.75>
+ST_4 : Operation 63 [1/1] (0.00ns)   --->   "%i5 = phi i2 [ %i_2, %.preheader555.loopexit ], [ 0, %.preheader555.preheader ]"   --->   Operation 63 'phi' 'i5' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 64 [1/1] (0.51ns)   --->   "%exitcond2 = icmp eq i2 %i5, -1" [Convolucion/Resources/top.cpp:24]   --->   Operation 64 'icmp' 'exitcond2' <Predicate = true> <Delay = 0.51> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.85> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 65 [1/1] (0.00ns)   --->   "%empty_13 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 3, i64 3, i64 3)"   --->   Operation 65 'speclooptripcount' 'empty_13' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 66 [1/1] (0.62ns)   --->   "%i_2 = add i2 %i5, 1" [Convolucion/Resources/top.cpp:24]   --->   Operation 66 'add' 'i_2' <Predicate = true> <Delay = 0.62> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 67 [1/1] (0.00ns)   --->   "br i1 %exitcond2, label %.preheader553.preheader, label %.preheader554.preheader" [Convolucion/Resources/top.cpp:24]   --->   Operation 67 'br' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 68 [1/1] (0.00ns)   --->   "%tmp_1_cast = zext i2 %i5 to i5" [Convolucion/Resources/top.cpp:24]   --->   Operation 68 'zext' 'tmp_1_cast' <Predicate = (!exitcond2)> <Delay = 0.00>
+ST_4 : Operation 69 [1/1] (0.00ns)   --->   "%tmp_s = call i4 @_ssdm_op_BitConcatenate.i4.i2.i2(i2 %i5, i2 0)" [Convolucion/Resources/top.cpp:24]   --->   Operation 69 'bitconcatenate' 'tmp_s' <Predicate = (!exitcond2)> <Delay = 0.00>
+ST_4 : Operation 70 [1/1] (0.00ns)   --->   "%p_shl1_cast = zext i4 %tmp_s to i5" [Convolucion/Resources/top.cpp:26]   --->   Operation 70 'zext' 'p_shl1_cast' <Predicate = (!exitcond2)> <Delay = 0.00>
+ST_4 : Operation 71 [1/1] (0.86ns)   --->   "%tmp_1 = sub i5 %p_shl1_cast, %tmp_1_cast" [Convolucion/Resources/top.cpp:26]   --->   Operation 71 'sub' 'tmp_1' <Predicate = (!exitcond2)> <Delay = 0.86> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 72 [1/1] (0.75ns)   --->   "br label %.preheader554" [Convolucion/Resources/top.cpp:25]   --->   Operation 72 'br' <Predicate = (!exitcond2)> <Delay = 0.75>
+ST_4 : Operation 73 [1/1] (0.00ns)   --->   "%p_s = alloca i32"   --->   Operation 73 'alloca' 'p_s' <Predicate = (exitcond2)> <Delay = 0.00>
+ST_4 : Operation 74 [1/1] (0.75ns)   --->   "br label %.preheader553" [Convolucion/Resources/top.cpp:33]   --->   Operation 74 'br' <Predicate = (exitcond2)> <Delay = 0.75>
 
 State 5 <SV = 3> <Delay = 1.66>
-ST_5 : Operation 85 [1/1] (0.00ns)   --->   "%j6 = phi i2 [ %j_2, %3 ], [ 0, %.preheader554.preheader ]"   --->   Operation 85 'phi' 'j6' <Predicate = true> <Delay = 0.00>
-ST_5 : Operation 86 [1/1] (0.51ns)   --->   "%exitcond5 = icmp eq i2 %j6, -1" [Convolucion/Resources/top.cpp:22]   --->   Operation 86 'icmp' 'exitcond5' <Predicate = true> <Delay = 0.51> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.85> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_5 : Operation 87 [1/1] (0.00ns)   --->   "%empty_33 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 3, i64 3, i64 3)"   --->   Operation 87 'speclooptripcount' 'empty_33' <Predicate = true> <Delay = 0.00>
-ST_5 : Operation 88 [1/1] (0.62ns)   --->   "%j_2 = add i2 %j6, 1" [Convolucion/Resources/top.cpp:22]   --->   Operation 88 'add' 'j_2' <Predicate = true> <Delay = 0.62> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_5 : Operation 89 [1/1] (0.00ns)   --->   "br i1 %exitcond5, label %.preheader555.loopexit, label %3" [Convolucion/Resources/top.cpp:22]   --->   Operation 89 'br' <Predicate = true> <Delay = 0.00>
-ST_5 : Operation 90 [1/1] (0.00ns)   --->   "%tmp_7_cast = zext i2 %j6 to i5" [Convolucion/Resources/top.cpp:23]   --->   Operation 90 'zext' 'tmp_7_cast' <Predicate = (!exitcond5)> <Delay = 0.00>
-ST_5 : Operation 91 [1/1] (0.87ns)   --->   "%tmp_2 = add i5 %tmp_1, %tmp_7_cast" [Convolucion/Resources/top.cpp:23]   --->   Operation 91 'add' 'tmp_2' <Predicate = (!exitcond5)> <Delay = 0.87> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_5 : Operation 92 [1/1] (0.00ns)   --->   "%tmp_22_cast = sext i5 %tmp_2 to i64" [Convolucion/Resources/top.cpp:23]   --->   Operation 92 'sext' 'tmp_22_cast' <Predicate = (!exitcond5)> <Delay = 0.00>
-ST_5 : Operation 93 [1/1] (0.00ns)   --->   "%conv_window_V_addr_1 = getelementptr [9 x i8]* %conv_window_V, i64 0, i64 %tmp_22_cast" [Convolucion/Resources/top.cpp:23]   --->   Operation 93 'getelementptr' 'conv_window_V_addr_1' <Predicate = (!exitcond5)> <Delay = 0.00>
-ST_5 : Operation 94 [1/1] (0.79ns)   --->   "store i8 0, i8* %conv_window_V_addr_1, align 1" [Convolucion/Resources/top.cpp:23]   --->   Operation 94 'store' <Predicate = (!exitcond5)> <Delay = 0.79> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.79> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 9> <RAM>
-ST_5 : Operation 95 [1/1] (0.00ns)   --->   "br label %.preheader554" [Convolucion/Resources/top.cpp:22]   --->   Operation 95 'br' <Predicate = (!exitcond5)> <Delay = 0.00>
-ST_5 : Operation 96 [1/1] (0.00ns)   --->   "br label %.preheader555"   --->   Operation 96 'br' <Predicate = (exitcond5)> <Delay = 0.00>
+ST_5 : Operation 75 [1/1] (0.00ns)   --->   "%j6 = phi i2 [ %j_2, %3 ], [ 0, %.preheader554.preheader ]"   --->   Operation 75 'phi' 'j6' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 76 [1/1] (0.51ns)   --->   "%exitcond5 = icmp eq i2 %j6, -1" [Convolucion/Resources/top.cpp:25]   --->   Operation 76 'icmp' 'exitcond5' <Predicate = true> <Delay = 0.51> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.85> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 77 [1/1] (0.00ns)   --->   "%empty_14 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 3, i64 3, i64 3)"   --->   Operation 77 'speclooptripcount' 'empty_14' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 78 [1/1] (0.62ns)   --->   "%j_2 = add i2 %j6, 1" [Convolucion/Resources/top.cpp:25]   --->   Operation 78 'add' 'j_2' <Predicate = true> <Delay = 0.62> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 79 [1/1] (0.00ns)   --->   "br i1 %exitcond5, label %.preheader555.loopexit, label %3" [Convolucion/Resources/top.cpp:25]   --->   Operation 79 'br' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 80 [1/1] (0.00ns)   --->   "%tmp_7_cast = zext i2 %j6 to i5" [Convolucion/Resources/top.cpp:26]   --->   Operation 80 'zext' 'tmp_7_cast' <Predicate = (!exitcond5)> <Delay = 0.00>
+ST_5 : Operation 81 [1/1] (0.87ns)   --->   "%tmp_2 = add i5 %tmp_1, %tmp_7_cast" [Convolucion/Resources/top.cpp:26]   --->   Operation 81 'add' 'tmp_2' <Predicate = (!exitcond5)> <Delay = 0.87> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 82 [1/1] (0.00ns)   --->   "%tmp_22_cast = sext i5 %tmp_2 to i64" [Convolucion/Resources/top.cpp:26]   --->   Operation 82 'sext' 'tmp_22_cast' <Predicate = (!exitcond5)> <Delay = 0.00>
+ST_5 : Operation 83 [1/1] (0.00ns)   --->   "%conv_window_V_addr_1 = getelementptr [9 x i8]* %conv_window_V, i64 0, i64 %tmp_22_cast" [Convolucion/Resources/top.cpp:26]   --->   Operation 83 'getelementptr' 'conv_window_V_addr_1' <Predicate = (!exitcond5)> <Delay = 0.00>
+ST_5 : Operation 84 [1/1] (0.79ns)   --->   "store i8 0, i8* %conv_window_V_addr_1, align 1" [Convolucion/Resources/top.cpp:26]   --->   Operation 84 'store' <Predicate = (!exitcond5)> <Delay = 0.79> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.79> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 9> <RAM>
+ST_5 : Operation 85 [1/1] (0.00ns)   --->   "br label %.preheader554" [Convolucion/Resources/top.cpp:25]   --->   Operation 85 'br' <Predicate = (!exitcond5)> <Delay = 0.00>
+ST_5 : Operation 86 [1/1] (0.00ns)   --->   "br label %.preheader555"   --->   Operation 86 'br' <Predicate = (exitcond5)> <Delay = 0.00>
 
 State 6 <SV = 3> <Delay = 0.92>
-ST_6 : Operation 97 [1/1] (0.00ns)   --->   "%row = phi i9 [ 0, %.preheader553.preheader ], [ %row_1, %.preheader553.loopexit ]"   --->   Operation 97 'phi' 'row' <Predicate = true> <Delay = 0.00>
-ST_6 : Operation 98 [1/1] (0.85ns)   --->   "%exitcond4 = icmp eq i9 %row, -32" [Convolucion/Resources/top.cpp:30]   --->   Operation 98 'icmp' 'exitcond4' <Predicate = true> <Delay = 0.85> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.85> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_6 : Operation 99 [1/1] (0.00ns)   --->   "%empty_34 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 480, i64 480, i64 480)"   --->   Operation 99 'speclooptripcount' 'empty_34' <Predicate = true> <Delay = 0.00>
-ST_6 : Operation 100 [1/1] (0.92ns)   --->   "%row_1 = add i9 %row, 1" [Convolucion/Resources/top.cpp:30]   --->   Operation 100 'add' 'row_1' <Predicate = true> <Delay = 0.92> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_6 : Operation 101 [1/1] (0.00ns)   --->   "br i1 %exitcond4, label %13, label %.preheader552.preheader" [Convolucion/Resources/top.cpp:30]   --->   Operation 101 'br' <Predicate = true> <Delay = 0.00>
-ST_6 : Operation 102 [1/1] (0.85ns)   --->   "%tmp_5 = icmp eq i9 %row, -33" [Convolucion/Resources/top.cpp:67]   --->   Operation 102 'icmp' 'tmp_5' <Predicate = (!exitcond4)> <Delay = 0.85> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.85> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_6 : Operation 103 [1/1] (0.75ns)   --->   "br label %.preheader552" [Convolucion/Resources/top.cpp:31]   --->   Operation 103 'br' <Predicate = (!exitcond4)> <Delay = 0.75>
-ST_6 : Operation 104 [1/1] (0.00ns)   --->   "ret void" [Convolucion/Resources/top.cpp:85]   --->   Operation 104 'ret' <Predicate = (exitcond4)> <Delay = 0.00>
+ST_6 : Operation 87 [1/1] (0.00ns)   --->   "%row = phi i9 [ 0, %.preheader553.preheader ], [ %row_1, %.preheader553.loopexit ]"   --->   Operation 87 'phi' 'row' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 88 [1/1] (0.85ns)   --->   "%exitcond4 = icmp eq i9 %row, -32" [Convolucion/Resources/top.cpp:33]   --->   Operation 88 'icmp' 'exitcond4' <Predicate = true> <Delay = 0.85> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.85> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 89 [1/1] (0.00ns)   --->   "%empty_15 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 480, i64 480, i64 480)"   --->   Operation 89 'speclooptripcount' 'empty_15' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 90 [1/1] (0.92ns)   --->   "%row_1 = add i9 %row, 1" [Convolucion/Resources/top.cpp:33]   --->   Operation 90 'add' 'row_1' <Predicate = true> <Delay = 0.92> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 91 [1/1] (0.00ns)   --->   "br i1 %exitcond4, label %13, label %.preheader552.preheader" [Convolucion/Resources/top.cpp:33]   --->   Operation 91 'br' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 92 [1/1] (0.85ns)   --->   "%tmp_5 = icmp eq i9 %row, -33" [Convolucion/Resources/top.cpp:70]   --->   Operation 92 'icmp' 'tmp_5' <Predicate = (!exitcond4)> <Delay = 0.85> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.85> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 93 [1/1] (0.75ns)   --->   "br label %.preheader552" [Convolucion/Resources/top.cpp:34]   --->   Operation 93 'br' <Predicate = (!exitcond4)> <Delay = 0.75>
+ST_6 : Operation 94 [1/1] (0.00ns)   --->   "ret void" [Convolucion/Resources/top.cpp:88]   --->   Operation 94 'ret' <Predicate = (exitcond4)> <Delay = 0.00>
 
-State 7 <SV = 4> <Delay = 5.92>
-ST_7 : Operation 105 [1/1] (0.00ns)   --->   "%col = phi i10 [ %col_1, %_ZNK12ap_range_refILi32ELb1EE6lengthEv.exit.i.i.i.i ], [ 0, %.preheader552.preheader ]"   --->   Operation 105 'phi' 'col' <Predicate = true> <Delay = 0.00>
-ST_7 : Operation 106 [1/1] (0.00ns)   --->   "%p_load = load i32* %p_s"   --->   Operation 106 'load' 'p_load' <Predicate = true> <Delay = 0.00>
-ST_7 : Operation 107 [1/1] (0.85ns)   --->   "%exitcond6 = icmp eq i10 %col, -384" [Convolucion/Resources/top.cpp:31]   --->   Operation 107 'icmp' 'exitcond6' <Predicate = true> <Delay = 0.85> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.85> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_7 : Operation 108 [1/1] (0.00ns)   --->   "%empty_35 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 640, i64 640, i64 640)"   --->   Operation 108 'speclooptripcount' 'empty_35' <Predicate = true> <Delay = 0.00>
-ST_7 : Operation 109 [1/1] (0.93ns)   --->   "%col_1 = add i10 %col, 1" [Convolucion/Resources/top.cpp:31]   --->   Operation 109 'add' 'col_1' <Predicate = true> <Delay = 0.93> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_7 : Operation 110 [1/1] (0.00ns)   --->   "br i1 %exitcond6, label %.preheader553.loopexit, label %4" [Convolucion/Resources/top.cpp:31]   --->   Operation 110 'br' <Predicate = true> <Delay = 0.00>
-ST_7 : Operation 111 [1/1] (2.16ns)   --->   "%empty_36 = call { i24, i3, i3, i1, i1, i1, i1 } @_ssdm_op_Read.ap_fifo.volatile.i24P.i3P.i3P.i1P.i1P.i1P.i1P(i24* %in_V_data_V, i3* %in_V_keep_V, i3* %in_V_strb_V, i1* %in_V_user_V, i1* %in_V_last_V, i1* %in_V_id_V, i1* %in_V_dest_V)" [Convolucion/Resources/top.cpp:37]   --->   Operation 111 'read' 'empty_36' <Predicate = (!exitcond6)> <Delay = 2.16> <Core = "FIFO_SRL">   --->   Core 36 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 2.16> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 24> <Depth = 0> <FIFO>
-ST_7 : Operation 112 [1/1] (0.00ns)   --->   "%tmp_data_V_1 = extractvalue { i24, i3, i3, i1, i1, i1, i1 } %empty_36, 0" [Convolucion/Resources/top.cpp:37]   --->   Operation 112 'extractvalue' 'tmp_data_V_1' <Predicate = (!exitcond6)> <Delay = 0.00>
-ST_7 : Operation 113 [1/1] (0.00ns)   --->   "%p_Result_s = call i8 @_ssdm_op_PartSelect.i8.i24.i32.i32(i24 %tmp_data_V_1, i32 16, i32 23)" [Convolucion/Resources/top.cpp:41]   --->   Operation 113 'partselect' 'p_Result_s' <Predicate = (!exitcond6)> <Delay = 0.00>
-ST_7 : Operation 114 [1/1] (0.00ns)   --->   "%p_Result_1 = call i8 @_ssdm_op_PartSelect.i8.i24.i32.i32(i24 %tmp_data_V_1, i32 8, i32 15)" [Convolucion/Resources/top.cpp:41]   --->   Operation 114 'partselect' 'p_Result_1' <Predicate = (!exitcond6)> <Delay = 0.00>
-ST_7 : Operation 115 [1/1] (0.00ns)   --->   "%lhs_V_cast = zext i8 %p_Result_s to i9" [Convolucion/Resources/top.cpp:41]   --->   Operation 115 'zext' 'lhs_V_cast' <Predicate = (!exitcond6)> <Delay = 0.00>
-ST_7 : Operation 116 [1/1] (0.00ns)   --->   "%rhs_V_cast = zext i8 %p_Result_1 to i9" [Convolucion/Resources/top.cpp:41]   --->   Operation 116 'zext' 'rhs_V_cast' <Predicate = (!exitcond6)> <Delay = 0.00>
-ST_7 : Operation 117 [1/1] (0.90ns)   --->   "%ret_V = add i9 %lhs_V_cast, %rhs_V_cast" [Convolucion/Resources/top.cpp:41]   --->   Operation 117 'add' 'ret_V' <Predicate = (!exitcond6)> <Delay = 0.90> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_7 : Operation 118 [1/1] (0.00ns)   --->   "%tmp_3 = trunc i24 %tmp_data_V_1 to i8" [Convolucion/Resources/top.cpp:41]   --->   Operation 118 'trunc' 'tmp_3' <Predicate = (!exitcond6)> <Delay = 0.00>
-ST_7 : Operation 119 [1/1] (0.00ns)   --->   "%lhs_V_1_cast = zext i9 %ret_V to i10" [Convolucion/Resources/top.cpp:41]   --->   Operation 119 'zext' 'lhs_V_1_cast' <Predicate = (!exitcond6)> <Delay = 0.00>
-ST_7 : Operation 120 [1/1] (0.00ns)   --->   "%rhs_V_1_cast = zext i8 %tmp_3 to i10" [Convolucion/Resources/top.cpp:41]   --->   Operation 120 'zext' 'rhs_V_1_cast' <Predicate = (!exitcond6)> <Delay = 0.00>
-ST_7 : Operation 121 [1/1] (0.00ns) (grouped into DSP with root node mul)   --->   "%ret_V_1 = add i10 %rhs_V_1_cast, %lhs_V_1_cast" [Convolucion/Resources/top.cpp:41]   --->   Operation 121 'add' 'ret_V_1' <Predicate = (!exitcond6)> <Delay = 0.00> <Core = "DSP48">   --->   Core 65 'DSP48' <Latency = 0> <II = 1> <Delay = 2.84> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 2> <OutPorts = 1> <Sync> <CReg>
-ST_7 : Operation 122 [1/1] (0.00ns) (grouped into DSP with root node mul)   --->   "%zext_cast = zext i10 %ret_V_1 to i22" [Convolucion/Resources/top.cpp:41]   --->   Operation 122 'zext' 'zext_cast' <Predicate = (!exitcond6)> <Delay = 0.00>
-ST_7 : Operation 123 [1/1] (2.84ns) (root node of the DSP)   --->   "%mul = mul i22 1366, %zext_cast" [Convolucion/Resources/top.cpp:41]   --->   Operation 123 'mul' 'mul' <Predicate = (!exitcond6)> <Delay = 2.84> <Core = "DSP48">   --->   Core 65 'DSP48' <Latency = 0> <II = 1> <Delay = 2.84> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 2> <OutPorts = 1> <Sync> <CReg>
-ST_7 : Operation 124 [1/1] (0.00ns)   --->   "%pixel_gray_V = call i8 @_ssdm_op_PartSelect.i8.i22.i32.i32(i22 %mul, i32 12, i32 19)" [Convolucion/Resources/top.cpp:41]   --->   Operation 124 'partselect' 'pixel_gray_V' <Predicate = (!exitcond6)> <Delay = 0.00>
-ST_7 : Operation 125 [1/1] (0.75ns)   --->   "br label %5" [Convolucion/Resources/top.cpp:43]   --->   Operation 125 'br' <Predicate = (!exitcond6)> <Delay = 0.75>
-ST_7 : Operation 126 [1/1] (0.00ns)   --->   "br label %.preheader553"   --->   Operation 126 'br' <Predicate = (exitcond6)> <Delay = 0.00>
+State 7 <SV = 4> <Delay = 3.75>
+ST_7 : Operation 95 [1/1] (0.00ns)   --->   "%col = phi i10 [ %col_1, %_ZNK12ap_range_refILi32ELb1EE6lengthEv.exit.i.i.i.i ], [ 0, %.preheader552.preheader ]"   --->   Operation 95 'phi' 'col' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 96 [1/1] (0.00ns)   --->   "%p_load = load i32* %p_s"   --->   Operation 96 'load' 'p_load' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 97 [1/1] (0.85ns)   --->   "%exitcond6 = icmp eq i10 %col, -384" [Convolucion/Resources/top.cpp:34]   --->   Operation 97 'icmp' 'exitcond6' <Predicate = true> <Delay = 0.85> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.85> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 98 [1/1] (0.00ns)   --->   "%empty_16 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 640, i64 640, i64 640)"   --->   Operation 98 'speclooptripcount' 'empty_16' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 99 [1/1] (0.93ns)   --->   "%col_1 = add i10 %col, 1" [Convolucion/Resources/top.cpp:34]   --->   Operation 99 'add' 'col_1' <Predicate = true> <Delay = 0.93> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 100 [1/1] (0.00ns)   --->   "br i1 %exitcond6, label %.preheader553.loopexit, label %4" [Convolucion/Resources/top.cpp:34]   --->   Operation 100 'br' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 101 [1/1] (0.00ns)   --->   "%empty_17 = call { i24, i3, i3, i1, i1, i1, i1 } @_ssdm_op_Read.axis.volatile.i24P.i3P.i3P.i1P.i1P.i1P.i1P(i24* %in_V_data_V, i3* %in_V_keep_V, i3* %in_V_strb_V, i1* %in_V_user_V, i1* %in_V_last_V, i1* %in_V_id_V, i1* %in_V_dest_V)" [Convolucion/Resources/top.cpp:40]   --->   Operation 101 'read' 'empty_17' <Predicate = (!exitcond6)> <Delay = 0.00> <Core = "AXI4Stream">   --->   Core 5 'AXI4Stream' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+ST_7 : Operation 102 [1/1] (0.00ns)   --->   "%tmp_data_V_1 = extractvalue { i24, i3, i3, i1, i1, i1, i1 } %empty_17, 0" [Convolucion/Resources/top.cpp:40]   --->   Operation 102 'extractvalue' 'tmp_data_V_1' <Predicate = (!exitcond6)> <Delay = 0.00>
+ST_7 : Operation 103 [1/1] (0.00ns)   --->   "%p_Result_s = call i8 @_ssdm_op_PartSelect.i8.i24.i32.i32(i24 %tmp_data_V_1, i32 16, i32 23)" [Convolucion/Resources/top.cpp:44]   --->   Operation 103 'partselect' 'p_Result_s' <Predicate = (!exitcond6)> <Delay = 0.00>
+ST_7 : Operation 104 [1/1] (0.00ns)   --->   "%p_Result_1 = call i8 @_ssdm_op_PartSelect.i8.i24.i32.i32(i24 %tmp_data_V_1, i32 8, i32 15)" [Convolucion/Resources/top.cpp:44]   --->   Operation 104 'partselect' 'p_Result_1' <Predicate = (!exitcond6)> <Delay = 0.00>
+ST_7 : Operation 105 [1/1] (0.00ns)   --->   "%lhs_V_cast = zext i8 %p_Result_s to i9" [Convolucion/Resources/top.cpp:44]   --->   Operation 105 'zext' 'lhs_V_cast' <Predicate = (!exitcond6)> <Delay = 0.00>
+ST_7 : Operation 106 [1/1] (0.00ns)   --->   "%rhs_V_cast = zext i8 %p_Result_1 to i9" [Convolucion/Resources/top.cpp:44]   --->   Operation 106 'zext' 'rhs_V_cast' <Predicate = (!exitcond6)> <Delay = 0.00>
+ST_7 : Operation 107 [1/1] (0.90ns)   --->   "%ret_V = add i9 %lhs_V_cast, %rhs_V_cast" [Convolucion/Resources/top.cpp:44]   --->   Operation 107 'add' 'ret_V' <Predicate = (!exitcond6)> <Delay = 0.90> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 108 [1/1] (0.00ns)   --->   "%tmp_3 = trunc i24 %tmp_data_V_1 to i8" [Convolucion/Resources/top.cpp:44]   --->   Operation 108 'trunc' 'tmp_3' <Predicate = (!exitcond6)> <Delay = 0.00>
+ST_7 : Operation 109 [1/1] (0.00ns)   --->   "%lhs_V_1_cast = zext i9 %ret_V to i10" [Convolucion/Resources/top.cpp:44]   --->   Operation 109 'zext' 'lhs_V_1_cast' <Predicate = (!exitcond6)> <Delay = 0.00>
+ST_7 : Operation 110 [1/1] (0.00ns)   --->   "%rhs_V_1_cast = zext i8 %tmp_3 to i10" [Convolucion/Resources/top.cpp:44]   --->   Operation 110 'zext' 'rhs_V_1_cast' <Predicate = (!exitcond6)> <Delay = 0.00>
+ST_7 : Operation 111 [1/1] (0.00ns) (grouped into DSP with root node mul)   --->   "%ret_V_1 = add i10 %rhs_V_1_cast, %lhs_V_1_cast" [Convolucion/Resources/top.cpp:44]   --->   Operation 111 'add' 'ret_V_1' <Predicate = (!exitcond6)> <Delay = 0.00> <Core = "DSP48">   --->   Core 65 'DSP48' <Latency = 0> <II = 1> <Delay = 2.84> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 2> <OutPorts = 1> <Sync> <CReg>
+ST_7 : Operation 112 [1/1] (0.00ns) (grouped into DSP with root node mul)   --->   "%zext_cast = zext i10 %ret_V_1 to i22" [Convolucion/Resources/top.cpp:44]   --->   Operation 112 'zext' 'zext_cast' <Predicate = (!exitcond6)> <Delay = 0.00>
+ST_7 : Operation 113 [1/1] (2.84ns) (root node of the DSP)   --->   "%mul = mul i22 1366, %zext_cast" [Convolucion/Resources/top.cpp:44]   --->   Operation 113 'mul' 'mul' <Predicate = (!exitcond6)> <Delay = 2.84> <Core = "DSP48">   --->   Core 65 'DSP48' <Latency = 0> <II = 1> <Delay = 2.84> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 2> <OutPorts = 1> <Sync> <CReg>
+ST_7 : Operation 114 [1/1] (0.00ns)   --->   "%pixel_gray_V = call i8 @_ssdm_op_PartSelect.i8.i22.i32.i32(i22 %mul, i32 12, i32 19)" [Convolucion/Resources/top.cpp:44]   --->   Operation 114 'partselect' 'pixel_gray_V' <Predicate = (!exitcond6)> <Delay = 0.00>
+ST_7 : Operation 115 [1/1] (0.75ns)   --->   "br label %5" [Convolucion/Resources/top.cpp:46]   --->   Operation 115 'br' <Predicate = (!exitcond6)> <Delay = 0.75>
+ST_7 : Operation 116 [1/1] (0.00ns)   --->   "br label %.preheader553"   --->   Operation 116 'br' <Predicate = (exitcond6)> <Delay = 0.00>
 
 State 8 <SV = 5> <Delay = 1.74>
-ST_8 : Operation 127 [1/1] (0.00ns)   --->   "%i7 = phi i2 [ 0, %4 ], [ %i_4, %._crit_edge ]"   --->   Operation 127 'phi' 'i7' <Predicate = true> <Delay = 0.00>
-ST_8 : Operation 128 [1/1] (0.51ns)   --->   "%exitcond7 = icmp eq i2 %i7, -1" [Convolucion/Resources/top.cpp:43]   --->   Operation 128 'icmp' 'exitcond7' <Predicate = true> <Delay = 0.51> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.85> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_8 : Operation 129 [1/1] (0.00ns)   --->   "%empty_37 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 3, i64 3, i64 3)"   --->   Operation 129 'speclooptripcount' 'empty_37' <Predicate = true> <Delay = 0.00>
-ST_8 : Operation 130 [1/1] (0.62ns)   --->   "%i_4 = add i2 %i7, 1" [Convolucion/Resources/top.cpp:43]   --->   Operation 130 'add' 'i_4' <Predicate = true> <Delay = 0.62> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_8 : Operation 131 [1/1] (0.00ns)   --->   "br i1 %exitcond7, label %11, label %.preheader551.preheader" [Convolucion/Resources/top.cpp:43]   --->   Operation 131 'br' <Predicate = true> <Delay = 0.00>
-ST_8 : Operation 132 [1/1] (0.00ns)   --->   "%tmp_cast = zext i2 %i7 to i5" [Convolucion/Resources/top.cpp:43]   --->   Operation 132 'zext' 'tmp_cast' <Predicate = (!exitcond7)> <Delay = 0.00>
-ST_8 : Operation 133 [1/1] (0.00ns)   --->   "%tmp_7 = call i4 @_ssdm_op_BitConcatenate.i4.i2.i2(i2 %i7, i2 0)" [Convolucion/Resources/top.cpp:43]   --->   Operation 133 'bitconcatenate' 'tmp_7' <Predicate = (!exitcond7)> <Delay = 0.00>
-ST_8 : Operation 134 [1/1] (0.00ns)   --->   "%p_shl2_cast = zext i4 %tmp_7 to i5" [Convolucion/Resources/top.cpp:45]   --->   Operation 134 'zext' 'p_shl2_cast' <Predicate = (!exitcond7)> <Delay = 0.00>
-ST_8 : Operation 135 [1/1] (0.86ns)   --->   "%tmp_8 = sub i5 %p_shl2_cast, %tmp_cast" [Convolucion/Resources/top.cpp:45]   --->   Operation 135 'sub' 'tmp_8' <Predicate = (!exitcond7)> <Delay = 0.86> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_8 : Operation 136 [1/1] (0.87ns)   --->   "%tmp_9 = add i5 %tmp_8, 2" [Convolucion/Resources/top.cpp:48]   --->   Operation 136 'add' 'tmp_9' <Predicate = (!exitcond7)> <Delay = 0.87> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_8 : Operation 137 [1/1] (0.00ns)   --->   "%tmp_25_cast = sext i5 %tmp_9 to i64" [Convolucion/Resources/top.cpp:48]   --->   Operation 137 'sext' 'tmp_25_cast' <Predicate = (!exitcond7)> <Delay = 0.00>
-ST_8 : Operation 138 [1/1] (0.00ns)   --->   "%conv_window_V_addr_2 = getelementptr [9 x i8]* %conv_window_V, i64 0, i64 %tmp_25_cast" [Convolucion/Resources/top.cpp:48]   --->   Operation 138 'getelementptr' 'conv_window_V_addr_2' <Predicate = (!exitcond7)> <Delay = 0.00>
-ST_8 : Operation 139 [1/1] (0.75ns)   --->   "br label %.preheader551" [Convolucion/Resources/top.cpp:44]   --->   Operation 139 'br' <Predicate = (!exitcond7)> <Delay = 0.75>
-ST_8 : Operation 140 [1/1] (0.79ns)   --->   "store i8 %pixel_gray_V, i8* %conv_window_V_addr, align 1" [Convolucion/Resources/top.cpp:54]   --->   Operation 140 'store' <Predicate = (exitcond7)> <Delay = 0.79> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.79> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 9> <RAM>
-ST_8 : Operation 141 [1/1] (0.75ns)   --->   "br label %.loopexit" [Convolucion/Resources/top.cpp:57]   --->   Operation 141 'br' <Predicate = (exitcond7)> <Delay = 0.75>
+ST_8 : Operation 117 [1/1] (0.00ns)   --->   "%i7 = phi i2 [ 0, %4 ], [ %i_4, %._crit_edge ]"   --->   Operation 117 'phi' 'i7' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 118 [1/1] (0.51ns)   --->   "%exitcond7 = icmp eq i2 %i7, -1" [Convolucion/Resources/top.cpp:46]   --->   Operation 118 'icmp' 'exitcond7' <Predicate = true> <Delay = 0.51> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.85> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 119 [1/1] (0.00ns)   --->   "%empty_18 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 3, i64 3, i64 3)"   --->   Operation 119 'speclooptripcount' 'empty_18' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 120 [1/1] (0.62ns)   --->   "%i_4 = add i2 %i7, 1" [Convolucion/Resources/top.cpp:46]   --->   Operation 120 'add' 'i_4' <Predicate = true> <Delay = 0.62> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 121 [1/1] (0.00ns)   --->   "br i1 %exitcond7, label %11, label %.preheader551.preheader" [Convolucion/Resources/top.cpp:46]   --->   Operation 121 'br' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 122 [1/1] (0.00ns)   --->   "%tmp_cast = zext i2 %i7 to i5" [Convolucion/Resources/top.cpp:46]   --->   Operation 122 'zext' 'tmp_cast' <Predicate = (!exitcond7)> <Delay = 0.00>
+ST_8 : Operation 123 [1/1] (0.00ns)   --->   "%tmp_7 = call i4 @_ssdm_op_BitConcatenate.i4.i2.i2(i2 %i7, i2 0)" [Convolucion/Resources/top.cpp:46]   --->   Operation 123 'bitconcatenate' 'tmp_7' <Predicate = (!exitcond7)> <Delay = 0.00>
+ST_8 : Operation 124 [1/1] (0.00ns)   --->   "%p_shl2_cast = zext i4 %tmp_7 to i5" [Convolucion/Resources/top.cpp:48]   --->   Operation 124 'zext' 'p_shl2_cast' <Predicate = (!exitcond7)> <Delay = 0.00>
+ST_8 : Operation 125 [1/1] (0.86ns)   --->   "%tmp_8 = sub i5 %p_shl2_cast, %tmp_cast" [Convolucion/Resources/top.cpp:48]   --->   Operation 125 'sub' 'tmp_8' <Predicate = (!exitcond7)> <Delay = 0.86> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 126 [1/1] (0.87ns)   --->   "%tmp_9 = add i5 %tmp_8, 2" [Convolucion/Resources/top.cpp:51]   --->   Operation 126 'add' 'tmp_9' <Predicate = (!exitcond7)> <Delay = 0.87> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 127 [1/1] (0.00ns)   --->   "%tmp_25_cast = sext i5 %tmp_9 to i64" [Convolucion/Resources/top.cpp:51]   --->   Operation 127 'sext' 'tmp_25_cast' <Predicate = (!exitcond7)> <Delay = 0.00>
+ST_8 : Operation 128 [1/1] (0.00ns)   --->   "%conv_window_V_addr_2 = getelementptr [9 x i8]* %conv_window_V, i64 0, i64 %tmp_25_cast" [Convolucion/Resources/top.cpp:51]   --->   Operation 128 'getelementptr' 'conv_window_V_addr_2' <Predicate = (!exitcond7)> <Delay = 0.00>
+ST_8 : Operation 129 [1/1] (0.75ns)   --->   "br label %.preheader551" [Convolucion/Resources/top.cpp:47]   --->   Operation 129 'br' <Predicate = (!exitcond7)> <Delay = 0.75>
+ST_8 : Operation 130 [1/1] (0.79ns)   --->   "store i8 %pixel_gray_V, i8* %conv_window_V_addr, align 1" [Convolucion/Resources/top.cpp:57]   --->   Operation 130 'store' <Predicate = (exitcond7)> <Delay = 0.79> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.79> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 9> <RAM>
+ST_8 : Operation 131 [1/1] (0.75ns)   --->   "br label %.loopexit" [Convolucion/Resources/top.cpp:60]   --->   Operation 131 'br' <Predicate = (exitcond7)> <Delay = 0.75>
 
 State 9 <SV = 6> <Delay = 2.29>
-ST_9 : Operation 142 [1/1] (0.00ns)   --->   "%j8 = phi i2 [ %j_3, %6 ], [ 0, %.preheader551.preheader ]"   --->   Operation 142 'phi' 'j8' <Predicate = true> <Delay = 0.00>
-ST_9 : Operation 143 [1/1] (0.51ns)   --->   "%exitcond9 = icmp eq i2 %j8, -2" [Convolucion/Resources/top.cpp:44]   --->   Operation 143 'icmp' 'exitcond9' <Predicate = true> <Delay = 0.51> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.85> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_9 : Operation 144 [1/1] (0.00ns)   --->   "%empty_38 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 2, i64 2, i64 2)"   --->   Operation 144 'speclooptripcount' 'empty_38' <Predicate = true> <Delay = 0.00>
-ST_9 : Operation 145 [1/1] (0.62ns)   --->   "%j_3 = add i2 %j8, 1" [Convolucion/Resources/top.cpp:45]   --->   Operation 145 'add' 'j_3' <Predicate = true> <Delay = 0.62> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_9 : Operation 146 [1/1] (0.00ns)   --->   "br i1 %exitcond9, label %7, label %6" [Convolucion/Resources/top.cpp:44]   --->   Operation 146 'br' <Predicate = true> <Delay = 0.00>
-ST_9 : Operation 147 [1/1] (0.00ns)   --->   "%tmp_11_cast = zext i2 %j8 to i5" [Convolucion/Resources/top.cpp:45]   --->   Operation 147 'zext' 'tmp_11_cast' <Predicate = (!exitcond9)> <Delay = 0.00>
-ST_9 : Operation 148 [1/1] (0.87ns)   --->   "%tmp_16 = add i5 %tmp_8, %tmp_11_cast" [Convolucion/Resources/top.cpp:45]   --->   Operation 148 'add' 'tmp_16' <Predicate = (!exitcond9)> <Delay = 0.87> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_9 : Operation 149 [1/1] (0.00ns)   --->   "%tmp_12_cast = zext i2 %j_3 to i5" [Convolucion/Resources/top.cpp:45]   --->   Operation 149 'zext' 'tmp_12_cast' <Predicate = (!exitcond9)> <Delay = 0.00>
-ST_9 : Operation 150 [1/1] (0.87ns)   --->   "%tmp_18 = add i5 %tmp_8, %tmp_12_cast" [Convolucion/Resources/top.cpp:45]   --->   Operation 150 'add' 'tmp_18' <Predicate = (!exitcond9)> <Delay = 0.87> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_9 : Operation 151 [1/1] (0.00ns)   --->   "%tmp_29_cast = sext i5 %tmp_18 to i64" [Convolucion/Resources/top.cpp:45]   --->   Operation 151 'sext' 'tmp_29_cast' <Predicate = (!exitcond9)> <Delay = 0.00>
-ST_9 : Operation 152 [1/1] (0.00ns)   --->   "%conv_window_V_addr_4 = getelementptr [9 x i8]* %conv_window_V, i64 0, i64 %tmp_29_cast" [Convolucion/Resources/top.cpp:45]   --->   Operation 152 'getelementptr' 'conv_window_V_addr_4' <Predicate = (!exitcond9)> <Delay = 0.00>
-ST_9 : Operation 153 [2/2] (0.79ns)   --->   "%conv_window_V_load = load i8* %conv_window_V_addr_4, align 1" [Convolucion/Resources/top.cpp:45]   --->   Operation 153 'load' 'conv_window_V_load' <Predicate = (!exitcond9)> <Delay = 0.79> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.79> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 9> <RAM>
-ST_9 : Operation 154 [1/1] (0.51ns)   --->   "%tmp_10 = icmp eq i2 %i7, -2" [Convolucion/Resources/top.cpp:47]   --->   Operation 154 'icmp' 'tmp_10' <Predicate = (exitcond9)> <Delay = 0.51> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.85> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_9 : Operation 155 [1/1] (0.00ns)   --->   "br i1 %tmp_10, label %._crit_edge, label %8" [Convolucion/Resources/top.cpp:47]   --->   Operation 155 'br' <Predicate = (exitcond9)> <Delay = 0.00>
-ST_9 : Operation 156 [1/1] (0.00ns)   --->   "%tmp_20 = trunc i2 %i7 to i1" [Convolucion/Resources/top.cpp:48]   --->   Operation 156 'trunc' 'tmp_20' <Predicate = (exitcond9 & !tmp_10)> <Delay = 0.00>
-ST_9 : Operation 157 [1/1] (0.00ns)   --->   "br i1 %tmp_20, label %branch3, label %branch2" [Convolucion/Resources/top.cpp:48]   --->   Operation 157 'br' <Predicate = (exitcond9 & !tmp_10)> <Delay = 0.00>
-ST_9 : Operation 158 [1/1] (1.89ns)   --->   "%tmp_V_1 = call i8 @_ssdm_op_Read.ap_fifo.volatile.i8P(i8* %line_buffer_0_V_V)" [Convolucion/Resources/top.cpp:48]   --->   Operation 158 'read' 'tmp_V_1' <Predicate = (exitcond9 & !tmp_10 & !tmp_20)> <Delay = 1.89> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 1.89> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 480> <FIFO>
-ST_9 : Operation 159 [1/1] (0.75ns)   --->   "br label %9" [Convolucion/Resources/top.cpp:48]   --->   Operation 159 'br' <Predicate = (exitcond9 & !tmp_10 & !tmp_20)> <Delay = 0.75>
-ST_9 : Operation 160 [1/1] (1.89ns)   --->   "%tmp_V = call i8 @_ssdm_op_Read.ap_fifo.volatile.i8P(i8* %line_buffer_1_V_V)" [Convolucion/Resources/top.cpp:48]   --->   Operation 160 'read' 'tmp_V' <Predicate = (exitcond9 & !tmp_10 & tmp_20)> <Delay = 1.89> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 1.89> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 480> <FIFO>
-ST_9 : Operation 161 [1/1] (0.75ns)   --->   "br label %9" [Convolucion/Resources/top.cpp:48]   --->   Operation 161 'br' <Predicate = (exitcond9 & !tmp_10 & tmp_20)> <Delay = 0.75>
-ST_9 : Operation 162 [1/1] (0.00ns)   --->   "%tmp_14_cast = zext i2 %i_4 to i5" [Convolucion/Resources/top.cpp:43]   --->   Operation 162 'zext' 'tmp_14_cast' <Predicate = (exitcond9 & !tmp_10)> <Delay = 0.00>
-ST_9 : Operation 163 [1/1] (0.00ns)   --->   "%tmp_22 = call i4 @_ssdm_op_BitConcatenate.i4.i2.i2(i2 %i_4, i2 0)" [Convolucion/Resources/top.cpp:43]   --->   Operation 163 'bitconcatenate' 'tmp_22' <Predicate = (exitcond9 & !tmp_10)> <Delay = 0.00>
-ST_9 : Operation 164 [1/1] (0.00ns)   --->   "%p_shl3_cast = zext i4 %tmp_22 to i5" [Convolucion/Resources/top.cpp:49]   --->   Operation 164 'zext' 'p_shl3_cast' <Predicate = (exitcond9 & !tmp_10)> <Delay = 0.00>
-ST_9 : Operation 165 [1/1] (0.86ns)   --->   "%tmp_23 = sub i5 %p_shl3_cast, %tmp_14_cast" [Convolucion/Resources/top.cpp:49]   --->   Operation 165 'sub' 'tmp_23' <Predicate = (exitcond9 & !tmp_10)> <Delay = 0.86> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_9 : Operation 166 [1/1] (0.00ns)   --->   "%tmp_32_cast = sext i5 %tmp_23 to i64" [Convolucion/Resources/top.cpp:49]   --->   Operation 166 'sext' 'tmp_32_cast' <Predicate = (exitcond9 & !tmp_10)> <Delay = 0.00>
-ST_9 : Operation 167 [1/1] (0.00ns)   --->   "%conv_window_V_addr_6 = getelementptr [9 x i8]* %conv_window_V, i64 0, i64 %tmp_32_cast" [Convolucion/Resources/top.cpp:49]   --->   Operation 167 'getelementptr' 'conv_window_V_addr_6' <Predicate = (exitcond9 & !tmp_10)> <Delay = 0.00>
-ST_9 : Operation 168 [2/2] (0.79ns)   --->   "%tmp_V_2 = load i8* %conv_window_V_addr_6, align 1" [Convolucion/Resources/top.cpp:49]   --->   Operation 168 'load' 'tmp_V_2' <Predicate = (exitcond9 & !tmp_10)> <Delay = 0.79> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.79> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 9> <RAM>
+ST_9 : Operation 132 [1/1] (0.00ns)   --->   "%j8 = phi i2 [ %j_3, %6 ], [ 0, %.preheader551.preheader ]"   --->   Operation 132 'phi' 'j8' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 133 [1/1] (0.51ns)   --->   "%exitcond9 = icmp eq i2 %j8, -2" [Convolucion/Resources/top.cpp:47]   --->   Operation 133 'icmp' 'exitcond9' <Predicate = true> <Delay = 0.51> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.85> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 134 [1/1] (0.00ns)   --->   "%empty_19 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 2, i64 2, i64 2)"   --->   Operation 134 'speclooptripcount' 'empty_19' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 135 [1/1] (0.62ns)   --->   "%j_3 = add i2 %j8, 1" [Convolucion/Resources/top.cpp:48]   --->   Operation 135 'add' 'j_3' <Predicate = true> <Delay = 0.62> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 136 [1/1] (0.00ns)   --->   "br i1 %exitcond9, label %7, label %6" [Convolucion/Resources/top.cpp:47]   --->   Operation 136 'br' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 137 [1/1] (0.00ns)   --->   "%tmp_11_cast = zext i2 %j8 to i5" [Convolucion/Resources/top.cpp:48]   --->   Operation 137 'zext' 'tmp_11_cast' <Predicate = (!exitcond9)> <Delay = 0.00>
+ST_9 : Operation 138 [1/1] (0.87ns)   --->   "%tmp_16 = add i5 %tmp_8, %tmp_11_cast" [Convolucion/Resources/top.cpp:48]   --->   Operation 138 'add' 'tmp_16' <Predicate = (!exitcond9)> <Delay = 0.87> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 139 [1/1] (0.00ns)   --->   "%tmp_12_cast = zext i2 %j_3 to i5" [Convolucion/Resources/top.cpp:48]   --->   Operation 139 'zext' 'tmp_12_cast' <Predicate = (!exitcond9)> <Delay = 0.00>
+ST_9 : Operation 140 [1/1] (0.87ns)   --->   "%tmp_18 = add i5 %tmp_8, %tmp_12_cast" [Convolucion/Resources/top.cpp:48]   --->   Operation 140 'add' 'tmp_18' <Predicate = (!exitcond9)> <Delay = 0.87> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 141 [1/1] (0.00ns)   --->   "%tmp_29_cast = sext i5 %tmp_18 to i64" [Convolucion/Resources/top.cpp:48]   --->   Operation 141 'sext' 'tmp_29_cast' <Predicate = (!exitcond9)> <Delay = 0.00>
+ST_9 : Operation 142 [1/1] (0.00ns)   --->   "%conv_window_V_addr_4 = getelementptr [9 x i8]* %conv_window_V, i64 0, i64 %tmp_29_cast" [Convolucion/Resources/top.cpp:48]   --->   Operation 142 'getelementptr' 'conv_window_V_addr_4' <Predicate = (!exitcond9)> <Delay = 0.00>
+ST_9 : Operation 143 [2/2] (0.79ns)   --->   "%conv_window_V_load = load i8* %conv_window_V_addr_4, align 1" [Convolucion/Resources/top.cpp:48]   --->   Operation 143 'load' 'conv_window_V_load' <Predicate = (!exitcond9)> <Delay = 0.79> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.79> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 9> <RAM>
+ST_9 : Operation 144 [1/1] (0.51ns)   --->   "%tmp_10 = icmp eq i2 %i7, -2" [Convolucion/Resources/top.cpp:50]   --->   Operation 144 'icmp' 'tmp_10' <Predicate = (exitcond9)> <Delay = 0.51> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.85> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 145 [1/1] (0.00ns)   --->   "br i1 %tmp_10, label %._crit_edge, label %8" [Convolucion/Resources/top.cpp:50]   --->   Operation 145 'br' <Predicate = (exitcond9)> <Delay = 0.00>
+ST_9 : Operation 146 [1/1] (0.00ns)   --->   "%tmp_20 = trunc i2 %i7 to i1" [Convolucion/Resources/top.cpp:51]   --->   Operation 146 'trunc' 'tmp_20' <Predicate = (exitcond9 & !tmp_10)> <Delay = 0.00>
+ST_9 : Operation 147 [1/1] (0.00ns)   --->   "br i1 %tmp_20, label %branch3, label %branch2" [Convolucion/Resources/top.cpp:51]   --->   Operation 147 'br' <Predicate = (exitcond9 & !tmp_10)> <Delay = 0.00>
+ST_9 : Operation 148 [1/1] (1.99ns)   --->   "%tmp_V_1 = call i8 @_ssdm_op_Read.ap_fifo.volatile.i8P(i8* %line_buffer_0_V_V)" [Convolucion/Resources/top.cpp:51]   --->   Operation 148 'read' 'tmp_V_1' <Predicate = (exitcond9 & !tmp_10 & !tmp_20)> <Delay = 1.99> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 1.99> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 640> <FIFO>
+ST_9 : Operation 149 [1/1] (0.75ns)   --->   "br label %9" [Convolucion/Resources/top.cpp:51]   --->   Operation 149 'br' <Predicate = (exitcond9 & !tmp_10 & !tmp_20)> <Delay = 0.75>
+ST_9 : Operation 150 [1/1] (1.99ns)   --->   "%tmp_V = call i8 @_ssdm_op_Read.ap_fifo.volatile.i8P(i8* %line_buffer_1_V_V)" [Convolucion/Resources/top.cpp:51]   --->   Operation 150 'read' 'tmp_V' <Predicate = (exitcond9 & !tmp_10 & tmp_20)> <Delay = 1.99> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 1.99> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 640> <FIFO>
+ST_9 : Operation 151 [1/1] (0.75ns)   --->   "br label %9" [Convolucion/Resources/top.cpp:51]   --->   Operation 151 'br' <Predicate = (exitcond9 & !tmp_10 & tmp_20)> <Delay = 0.75>
+ST_9 : Operation 152 [1/1] (0.00ns)   --->   "%tmp_14_cast = zext i2 %i_4 to i5" [Convolucion/Resources/top.cpp:46]   --->   Operation 152 'zext' 'tmp_14_cast' <Predicate = (exitcond9 & !tmp_10)> <Delay = 0.00>
+ST_9 : Operation 153 [1/1] (0.00ns)   --->   "%tmp_22 = call i4 @_ssdm_op_BitConcatenate.i4.i2.i2(i2 %i_4, i2 0)" [Convolucion/Resources/top.cpp:46]   --->   Operation 153 'bitconcatenate' 'tmp_22' <Predicate = (exitcond9 & !tmp_10)> <Delay = 0.00>
+ST_9 : Operation 154 [1/1] (0.00ns)   --->   "%p_shl3_cast = zext i4 %tmp_22 to i5" [Convolucion/Resources/top.cpp:52]   --->   Operation 154 'zext' 'p_shl3_cast' <Predicate = (exitcond9 & !tmp_10)> <Delay = 0.00>
+ST_9 : Operation 155 [1/1] (0.86ns)   --->   "%tmp_23 = sub i5 %p_shl3_cast, %tmp_14_cast" [Convolucion/Resources/top.cpp:52]   --->   Operation 155 'sub' 'tmp_23' <Predicate = (exitcond9 & !tmp_10)> <Delay = 0.86> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 156 [1/1] (0.00ns)   --->   "%tmp_32_cast = sext i5 %tmp_23 to i64" [Convolucion/Resources/top.cpp:52]   --->   Operation 156 'sext' 'tmp_32_cast' <Predicate = (exitcond9 & !tmp_10)> <Delay = 0.00>
+ST_9 : Operation 157 [1/1] (0.00ns)   --->   "%conv_window_V_addr_6 = getelementptr [9 x i8]* %conv_window_V, i64 0, i64 %tmp_32_cast" [Convolucion/Resources/top.cpp:52]   --->   Operation 157 'getelementptr' 'conv_window_V_addr_6' <Predicate = (exitcond9 & !tmp_10)> <Delay = 0.00>
+ST_9 : Operation 158 [2/2] (0.79ns)   --->   "%tmp_V_2 = load i8* %conv_window_V_addr_6, align 1" [Convolucion/Resources/top.cpp:52]   --->   Operation 158 'load' 'tmp_V_2' <Predicate = (exitcond9 & !tmp_10)> <Delay = 0.79> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.79> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 9> <RAM>
 
 State 10 <SV = 7> <Delay = 1.58>
-ST_10 : Operation 169 [1/1] (0.00ns)   --->   "%tmp_28_cast = sext i5 %tmp_16 to i64" [Convolucion/Resources/top.cpp:45]   --->   Operation 169 'sext' 'tmp_28_cast' <Predicate = true> <Delay = 0.00>
-ST_10 : Operation 170 [1/1] (0.00ns)   --->   "%conv_window_V_addr_3 = getelementptr [9 x i8]* %conv_window_V, i64 0, i64 %tmp_28_cast" [Convolucion/Resources/top.cpp:45]   --->   Operation 170 'getelementptr' 'conv_window_V_addr_3' <Predicate = true> <Delay = 0.00>
-ST_10 : Operation 171 [1/2] (0.79ns)   --->   "%conv_window_V_load = load i8* %conv_window_V_addr_4, align 1" [Convolucion/Resources/top.cpp:45]   --->   Operation 171 'load' 'conv_window_V_load' <Predicate = true> <Delay = 0.79> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.79> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 9> <RAM>
-ST_10 : Operation 172 [1/1] (0.79ns)   --->   "store i8 %conv_window_V_load, i8* %conv_window_V_addr_3, align 1" [Convolucion/Resources/top.cpp:45]   --->   Operation 172 'store' <Predicate = true> <Delay = 0.79> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.79> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 9> <RAM>
-ST_10 : Operation 173 [1/1] (0.00ns)   --->   "br label %.preheader551" [Convolucion/Resources/top.cpp:44]   --->   Operation 173 'br' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 159 [1/1] (0.00ns)   --->   "%tmp_28_cast = sext i5 %tmp_16 to i64" [Convolucion/Resources/top.cpp:48]   --->   Operation 159 'sext' 'tmp_28_cast' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 160 [1/1] (0.00ns)   --->   "%conv_window_V_addr_3 = getelementptr [9 x i8]* %conv_window_V, i64 0, i64 %tmp_28_cast" [Convolucion/Resources/top.cpp:48]   --->   Operation 160 'getelementptr' 'conv_window_V_addr_3' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 161 [1/2] (0.79ns)   --->   "%conv_window_V_load = load i8* %conv_window_V_addr_4, align 1" [Convolucion/Resources/top.cpp:48]   --->   Operation 161 'load' 'conv_window_V_load' <Predicate = true> <Delay = 0.79> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.79> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 9> <RAM>
+ST_10 : Operation 162 [1/1] (0.79ns)   --->   "store i8 %conv_window_V_load, i8* %conv_window_V_addr_3, align 1" [Convolucion/Resources/top.cpp:48]   --->   Operation 162 'store' <Predicate = true> <Delay = 0.79> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.79> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 9> <RAM>
+ST_10 : Operation 163 [1/1] (0.00ns)   --->   "br label %.preheader551" [Convolucion/Resources/top.cpp:47]   --->   Operation 163 'br' <Predicate = true> <Delay = 0.00>
 
-State 11 <SV = 7> <Delay = 2.68>
-ST_11 : Operation 174 [1/1] (0.00ns)   --->   "%tmp_V_11 = phi i8 [ %tmp_V, %branch3 ], [ %tmp_V_1, %branch2 ]"   --->   Operation 174 'phi' 'tmp_V_11' <Predicate = (!tmp_10)> <Delay = 0.00>
-ST_11 : Operation 175 [1/1] (0.79ns)   --->   "store i8 %tmp_V_11, i8* %conv_window_V_addr_2, align 1" [Convolucion/Resources/top.cpp:48]   --->   Operation 175 'store' <Predicate = (!tmp_10)> <Delay = 0.79> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.79> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 9> <RAM>
-ST_11 : Operation 176 [1/2] (0.79ns)   --->   "%tmp_V_2 = load i8* %conv_window_V_addr_6, align 1" [Convolucion/Resources/top.cpp:49]   --->   Operation 176 'load' 'tmp_V_2' <Predicate = (!tmp_10)> <Delay = 0.79> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.79> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 9> <RAM>
-ST_11 : Operation 177 [1/1] (0.00ns)   --->   "br i1 %tmp_20, label %branch1, label %branch0" [Convolucion/Resources/top.cpp:49]   --->   Operation 177 'br' <Predicate = (!tmp_10)> <Delay = 0.00>
-ST_11 : Operation 178 [1/1] (1.89ns)   --->   "call void @_ssdm_op_Write.ap_fifo.volatile.i8P(i8* %line_buffer_0_V_V, i8 %tmp_V_2)" [Convolucion/Resources/top.cpp:49]   --->   Operation 178 'write' <Predicate = (!tmp_10 & !tmp_20)> <Delay = 1.89> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 1.89> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 480> <FIFO>
-ST_11 : Operation 179 [1/1] (0.00ns)   --->   "br label %10" [Convolucion/Resources/top.cpp:49]   --->   Operation 179 'br' <Predicate = (!tmp_10 & !tmp_20)> <Delay = 0.00>
-ST_11 : Operation 180 [1/1] (1.89ns)   --->   "call void @_ssdm_op_Write.ap_fifo.volatile.i8P(i8* %line_buffer_1_V_V, i8 %tmp_V_2)" [Convolucion/Resources/top.cpp:49]   --->   Operation 180 'write' <Predicate = (!tmp_10 & tmp_20)> <Delay = 1.89> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 1.89> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 480> <FIFO>
-ST_11 : Operation 181 [1/1] (0.00ns)   --->   "br label %10" [Convolucion/Resources/top.cpp:49]   --->   Operation 181 'br' <Predicate = (!tmp_10 & tmp_20)> <Delay = 0.00>
-ST_11 : Operation 182 [1/1] (0.00ns)   --->   "br label %._crit_edge" [Convolucion/Resources/top.cpp:50]   --->   Operation 182 'br' <Predicate = (!tmp_10)> <Delay = 0.00>
-ST_11 : Operation 183 [1/1] (0.00ns)   --->   "br label %5" [Convolucion/Resources/top.cpp:43]   --->   Operation 183 'br' <Predicate = true> <Delay = 0.00>
+State 11 <SV = 7> <Delay = 2.78>
+ST_11 : Operation 164 [1/1] (0.00ns)   --->   "%tmp_V_11 = phi i8 [ %tmp_V, %branch3 ], [ %tmp_V_1, %branch2 ]"   --->   Operation 164 'phi' 'tmp_V_11' <Predicate = (!tmp_10)> <Delay = 0.00>
+ST_11 : Operation 165 [1/1] (0.79ns)   --->   "store i8 %tmp_V_11, i8* %conv_window_V_addr_2, align 1" [Convolucion/Resources/top.cpp:51]   --->   Operation 165 'store' <Predicate = (!tmp_10)> <Delay = 0.79> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.79> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 9> <RAM>
+ST_11 : Operation 166 [1/2] (0.79ns)   --->   "%tmp_V_2 = load i8* %conv_window_V_addr_6, align 1" [Convolucion/Resources/top.cpp:52]   --->   Operation 166 'load' 'tmp_V_2' <Predicate = (!tmp_10)> <Delay = 0.79> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.79> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 9> <RAM>
+ST_11 : Operation 167 [1/1] (0.00ns)   --->   "br i1 %tmp_20, label %branch1, label %branch0" [Convolucion/Resources/top.cpp:52]   --->   Operation 167 'br' <Predicate = (!tmp_10)> <Delay = 0.00>
+ST_11 : Operation 168 [1/1] (1.99ns)   --->   "call void @_ssdm_op_Write.ap_fifo.volatile.i8P(i8* %line_buffer_0_V_V, i8 %tmp_V_2)" [Convolucion/Resources/top.cpp:52]   --->   Operation 168 'write' <Predicate = (!tmp_10 & !tmp_20)> <Delay = 1.99> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 1.99> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 640> <FIFO>
+ST_11 : Operation 169 [1/1] (0.00ns)   --->   "br label %10" [Convolucion/Resources/top.cpp:52]   --->   Operation 169 'br' <Predicate = (!tmp_10 & !tmp_20)> <Delay = 0.00>
+ST_11 : Operation 170 [1/1] (1.99ns)   --->   "call void @_ssdm_op_Write.ap_fifo.volatile.i8P(i8* %line_buffer_1_V_V, i8 %tmp_V_2)" [Convolucion/Resources/top.cpp:52]   --->   Operation 170 'write' <Predicate = (!tmp_10 & tmp_20)> <Delay = 1.99> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 1.99> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 640> <FIFO>
+ST_11 : Operation 171 [1/1] (0.00ns)   --->   "br label %10" [Convolucion/Resources/top.cpp:52]   --->   Operation 171 'br' <Predicate = (!tmp_10 & tmp_20)> <Delay = 0.00>
+ST_11 : Operation 172 [1/1] (0.00ns)   --->   "br label %._crit_edge" [Convolucion/Resources/top.cpp:53]   --->   Operation 172 'br' <Predicate = (!tmp_10)> <Delay = 0.00>
+ST_11 : Operation 173 [1/1] (0.00ns)   --->   "br label %5" [Convolucion/Resources/top.cpp:46]   --->   Operation 173 'br' <Predicate = true> <Delay = 0.00>
 
-State 12 <SV = 6> <Delay = 4.12>
-ST_12 : Operation 184 [1/1] (0.00ns)   --->   "%p_0340_2 = phi i32 [ %p_load, %11 ], [ %p_0340_3, %.loopexit.loopexit ]" [Convolucion/Resources/top.cpp:59]   --->   Operation 184 'phi' 'p_0340_2' <Predicate = true> <Delay = 0.00>
-ST_12 : Operation 185 [1/1] (0.00ns)   --->   "%i9 = phi i2 [ 0, %11 ], [ %i_3, %.loopexit.loopexit ]"   --->   Operation 185 'phi' 'i9' <Predicate = true> <Delay = 0.00>
-ST_12 : Operation 186 [1/1] (0.00ns)   --->   "%i9_cast5 = zext i2 %i9 to i5" [Convolucion/Resources/top.cpp:57]   --->   Operation 186 'zext' 'i9_cast5' <Predicate = true> <Delay = 0.00>
-ST_12 : Operation 187 [1/1] (0.51ns)   --->   "%exitcond8 = icmp eq i2 %i9, -1" [Convolucion/Resources/top.cpp:57]   --->   Operation 187 'icmp' 'exitcond8' <Predicate = true> <Delay = 0.51> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.85> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_12 : Operation 188 [1/1] (0.00ns)   --->   "%empty_39 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 3, i64 3, i64 3)"   --->   Operation 188 'speclooptripcount' 'empty_39' <Predicate = true> <Delay = 0.00>
-ST_12 : Operation 189 [1/1] (0.62ns)   --->   "%i_3 = add i2 %i9, 1" [Convolucion/Resources/top.cpp:57]   --->   Operation 189 'add' 'i_3' <Predicate = true> <Delay = 0.62> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_12 : Operation 190 [1/1] (0.00ns)   --->   "br i1 %exitcond8, label %_ZNK12ap_range_refILi32ELb1EE6lengthEv.exit.i.i.i.i, label %.preheader.preheader" [Convolucion/Resources/top.cpp:57]   --->   Operation 190 'br' <Predicate = true> <Delay = 0.00>
-ST_12 : Operation 191 [1/1] (0.00ns)   --->   "%tmp_14 = call i4 @_ssdm_op_BitConcatenate.i4.i2.i2(i2 %i9, i2 0)" [Convolucion/Resources/top.cpp:57]   --->   Operation 191 'bitconcatenate' 'tmp_14' <Predicate = (!exitcond8)> <Delay = 0.00>
-ST_12 : Operation 192 [1/1] (0.00ns)   --->   "%p_shl4_cast = zext i4 %tmp_14 to i5" [Convolucion/Resources/top.cpp:59]   --->   Operation 192 'zext' 'p_shl4_cast' <Predicate = (!exitcond8)> <Delay = 0.00>
-ST_12 : Operation 193 [1/1] (0.86ns)   --->   "%tmp_15 = sub i5 %p_shl4_cast, %i9_cast5" [Convolucion/Resources/top.cpp:59]   --->   Operation 193 'sub' 'tmp_15' <Predicate = (!exitcond8)> <Delay = 0.86> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_12 : Operation 194 [1/1] (0.75ns)   --->   "br label %.preheader" [Convolucion/Resources/top.cpp:58]   --->   Operation 194 'br' <Predicate = (!exitcond8)> <Delay = 0.75>
-ST_12 : Operation 195 [1/1] (0.00ns)   --->   "%tmp_11 = call i24 @_ssdm_op_PartSelect.i24.i32.i32.i32(i32 %p_0340_2, i32 8, i32 31)" [Convolucion/Resources/top.cpp:62]   --->   Operation 195 'partselect' 'tmp_11' <Predicate = (exitcond8)> <Delay = 0.00>
-ST_12 : Operation 196 [1/1] (0.98ns)   --->   "%icmp = icmp sgt i24 %tmp_11, 0" [Convolucion/Resources/top.cpp:62]   --->   Operation 196 'icmp' 'icmp' <Predicate = (exitcond8)> <Delay = 0.98> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.85> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_12 : Operation 197 [1/1] (0.52ns)   --->   "%p_0340_2_41 = select i1 %icmp, i32 255, i32 %p_0340_2" [Convolucion/Resources/top.cpp:62]   --->   Operation 197 'select' 'p_0340_2_41' <Predicate = (exitcond8)> <Delay = 0.52> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.44> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
-ST_12 : Operation 198 [1/1] (0.00ns)   --->   "%tmp_12 = call i1 @_ssdm_op_BitSelect.i1.i32.i32(i32 %p_0340_2_41, i32 31)" [Convolucion/Resources/top.cpp:63]   --->   Operation 198 'bitselect' 'tmp_12' <Predicate = (exitcond8)> <Delay = 0.00>
-ST_12 : Operation 199 [1/1] (0.00ns)   --->   "%tmp_13 = trunc i32 %p_0340_2_41 to i8" [Convolucion/Resources/top.cpp:66]   --->   Operation 199 'trunc' 'tmp_13' <Predicate = (exitcond8)> <Delay = 0.00>
-ST_12 : Operation 200 [1/1] (0.44ns)   --->   "%tmp_4 = select i1 %tmp_12, i8 0, i8 %tmp_13" [Convolucion/Resources/top.cpp:63]   --->   Operation 200 'select' 'tmp_4' <Predicate = (exitcond8)> <Delay = 0.44> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.44> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
-ST_12 : Operation 201 [1/1] (0.00ns)   --->   "%tmp_data_V = call i24 @_ssdm_op_BitConcatenate.i24.i8.i8.i8(i8 %tmp_4, i8 %tmp_4, i8 %tmp_4)" [Convolucion/Resources/top.cpp:66]   --->   Operation 201 'bitconcatenate' 'tmp_data_V' <Predicate = (exitcond8)> <Delay = 0.00>
-ST_12 : Operation 202 [1/1] (0.85ns)   --->   "%tmp_6 = icmp eq i10 %col, -385" [Convolucion/Resources/top.cpp:67]   --->   Operation 202 'icmp' 'tmp_6' <Predicate = (exitcond8)> <Delay = 0.85> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.85> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_12 : Operation 203 [1/1] (0.33ns)   --->   "%tmp_last_V = and i1 %tmp_5, %tmp_6" [Convolucion/Resources/top.cpp:67]   --->   Operation 203 'and' 'tmp_last_V' <Predicate = (exitcond8)> <Delay = 0.33> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.33> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_12 : Operation 204 [1/1] (2.16ns)   --->   "call void @_ssdm_op_Write.ap_fifo.volatile.i24P.i3P.i3P.i1P.i1P.i1P.i1P(i24* %out_V_data_V, i3* %out_V_keep_V, i3* %out_V_strb_V, i1* %out_V_user_V, i1* %out_V_last_V, i1* %out_V_id_V, i1* %out_V_dest_V, i24 %tmp_data_V, i3 -1, i3 -1, i1 true, i1 %tmp_last_V, i1 true, i1 true)"   --->   Operation 204 'write' <Predicate = (exitcond8)> <Delay = 2.16> <Core = "FIFO_SRL">   --->   Core 36 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 2.16> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 24> <Depth = 0> <FIFO>
-ST_12 : Operation 205 [1/1] (0.00ns)   --->   "store i32 0, i32* %p_s"   --->   Operation 205 'store' <Predicate = (exitcond8)> <Delay = 0.00>
-ST_12 : Operation 206 [1/1] (0.00ns)   --->   "br label %.preheader552" [Convolucion/Resources/top.cpp:31]   --->   Operation 206 'br' <Predicate = (exitcond8)> <Delay = 0.00>
+State 12 <SV = 6> <Delay = 1.95>
+ST_12 : Operation 174 [1/1] (0.00ns)   --->   "%p_0340_2 = phi i32 [ %p_load, %11 ], [ %p_0340_3, %.loopexit.loopexit ]" [Convolucion/Resources/top.cpp:62]   --->   Operation 174 'phi' 'p_0340_2' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 175 [1/1] (0.00ns)   --->   "%i9 = phi i2 [ 0, %11 ], [ %i_3, %.loopexit.loopexit ]"   --->   Operation 175 'phi' 'i9' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 176 [1/1] (0.00ns)   --->   "%i9_cast5 = zext i2 %i9 to i5" [Convolucion/Resources/top.cpp:60]   --->   Operation 176 'zext' 'i9_cast5' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 177 [1/1] (0.51ns)   --->   "%exitcond8 = icmp eq i2 %i9, -1" [Convolucion/Resources/top.cpp:60]   --->   Operation 177 'icmp' 'exitcond8' <Predicate = true> <Delay = 0.51> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.85> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 178 [1/1] (0.00ns)   --->   "%empty_20 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 3, i64 3, i64 3)"   --->   Operation 178 'speclooptripcount' 'empty_20' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 179 [1/1] (0.62ns)   --->   "%i_3 = add i2 %i9, 1" [Convolucion/Resources/top.cpp:60]   --->   Operation 179 'add' 'i_3' <Predicate = true> <Delay = 0.62> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 180 [1/1] (0.00ns)   --->   "br i1 %exitcond8, label %_ZNK12ap_range_refILi32ELb1EE6lengthEv.exit.i.i.i.i, label %.preheader.preheader" [Convolucion/Resources/top.cpp:60]   --->   Operation 180 'br' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 181 [1/1] (0.00ns)   --->   "%tmp_14 = call i4 @_ssdm_op_BitConcatenate.i4.i2.i2(i2 %i9, i2 0)" [Convolucion/Resources/top.cpp:60]   --->   Operation 181 'bitconcatenate' 'tmp_14' <Predicate = (!exitcond8)> <Delay = 0.00>
+ST_12 : Operation 182 [1/1] (0.00ns)   --->   "%p_shl4_cast = zext i4 %tmp_14 to i5" [Convolucion/Resources/top.cpp:62]   --->   Operation 182 'zext' 'p_shl4_cast' <Predicate = (!exitcond8)> <Delay = 0.00>
+ST_12 : Operation 183 [1/1] (0.86ns)   --->   "%tmp_15 = sub i5 %p_shl4_cast, %i9_cast5" [Convolucion/Resources/top.cpp:62]   --->   Operation 183 'sub' 'tmp_15' <Predicate = (!exitcond8)> <Delay = 0.86> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 184 [1/1] (0.75ns)   --->   "br label %.preheader" [Convolucion/Resources/top.cpp:61]   --->   Operation 184 'br' <Predicate = (!exitcond8)> <Delay = 0.75>
+ST_12 : Operation 185 [1/1] (0.00ns)   --->   "%tmp_11 = call i24 @_ssdm_op_PartSelect.i24.i32.i32.i32(i32 %p_0340_2, i32 8, i32 31)" [Convolucion/Resources/top.cpp:65]   --->   Operation 185 'partselect' 'tmp_11' <Predicate = (exitcond8)> <Delay = 0.00>
+ST_12 : Operation 186 [1/1] (0.98ns)   --->   "%icmp = icmp sgt i24 %tmp_11, 0" [Convolucion/Resources/top.cpp:65]   --->   Operation 186 'icmp' 'icmp' <Predicate = (exitcond8)> <Delay = 0.98> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.85> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 187 [1/1] (0.52ns)   --->   "%p_0340_2_22 = select i1 %icmp, i32 255, i32 %p_0340_2" [Convolucion/Resources/top.cpp:65]   --->   Operation 187 'select' 'p_0340_2_22' <Predicate = (exitcond8)> <Delay = 0.52> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.44> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_12 : Operation 188 [1/1] (0.00ns)   --->   "%tmp_12 = call i1 @_ssdm_op_BitSelect.i1.i32.i32(i32 %p_0340_2_22, i32 31)" [Convolucion/Resources/top.cpp:66]   --->   Operation 188 'bitselect' 'tmp_12' <Predicate = (exitcond8)> <Delay = 0.00>
+ST_12 : Operation 189 [1/1] (0.00ns)   --->   "%tmp_13 = trunc i32 %p_0340_2_22 to i8" [Convolucion/Resources/top.cpp:69]   --->   Operation 189 'trunc' 'tmp_13' <Predicate = (exitcond8)> <Delay = 0.00>
+ST_12 : Operation 190 [1/1] (0.44ns)   --->   "%tmp_4 = select i1 %tmp_12, i8 0, i8 %tmp_13" [Convolucion/Resources/top.cpp:66]   --->   Operation 190 'select' 'tmp_4' <Predicate = (exitcond8)> <Delay = 0.44> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.44> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_12 : Operation 191 [1/1] (0.00ns)   --->   "%tmp_data_V = call i24 @_ssdm_op_BitConcatenate.i24.i8.i8.i8(i8 %tmp_4, i8 %tmp_4, i8 %tmp_4)" [Convolucion/Resources/top.cpp:69]   --->   Operation 191 'bitconcatenate' 'tmp_data_V' <Predicate = (exitcond8)> <Delay = 0.00>
+ST_12 : Operation 192 [1/1] (0.85ns)   --->   "%tmp_6 = icmp eq i10 %col, -385" [Convolucion/Resources/top.cpp:70]   --->   Operation 192 'icmp' 'tmp_6' <Predicate = (exitcond8)> <Delay = 0.85> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.85> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 193 [1/1] (0.33ns)   --->   "%tmp_last_V = and i1 %tmp_5, %tmp_6" [Convolucion/Resources/top.cpp:70]   --->   Operation 193 'and' 'tmp_last_V' <Predicate = (exitcond8)> <Delay = 0.33> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.33> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 194 [2/2] (0.00ns)   --->   "call void @_ssdm_op_Write.axis.volatile.i24P.i3P.i3P.i1P.i1P.i1P.i1P(i24* %out_V_data_V, i3* %out_V_keep_V, i3* %out_V_strb_V, i1* %out_V_user_V, i1* %out_V_last_V, i1* %out_V_id_V, i1* %out_V_dest_V, i24 %tmp_data_V, i3 -1, i3 -1, i1 true, i1 %tmp_last_V, i1 true, i1 true)"   --->   Operation 194 'write' <Predicate = (exitcond8)> <Delay = 0.00> <Core = "AXI4Stream">   --->   Core 5 'AXI4Stream' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+ST_12 : Operation 195 [1/1] (0.00ns)   --->   "store i32 0, i32* %p_s"   --->   Operation 195 'store' <Predicate = (exitcond8)> <Delay = 0.00>
 
 State 13 <SV = 7> <Delay = 2.22>
-ST_13 : Operation 207 [1/1] (0.00ns)   --->   "%p_0340_3 = phi i32 [ %conv_result_V, %12 ], [ %p_0340_2, %.preheader.preheader ]"   --->   Operation 207 'phi' 'p_0340_3' <Predicate = true> <Delay = 0.00>
-ST_13 : Operation 208 [1/1] (0.00ns)   --->   "%j4 = phi i2 [ %j_4, %12 ], [ 0, %.preheader.preheader ]"   --->   Operation 208 'phi' 'j4' <Predicate = true> <Delay = 0.00>
-ST_13 : Operation 209 [1/1] (0.00ns)   --->   "%j4_cast2 = zext i2 %j4 to i5" [Convolucion/Resources/top.cpp:58]   --->   Operation 209 'zext' 'j4_cast2' <Predicate = true> <Delay = 0.00>
-ST_13 : Operation 210 [1/1] (0.51ns)   --->   "%exitcond = icmp eq i2 %j4, -1" [Convolucion/Resources/top.cpp:58]   --->   Operation 210 'icmp' 'exitcond' <Predicate = true> <Delay = 0.51> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.85> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_13 : Operation 211 [1/1] (0.00ns)   --->   "%empty_40 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 3, i64 3, i64 3)"   --->   Operation 211 'speclooptripcount' 'empty_40' <Predicate = true> <Delay = 0.00>
-ST_13 : Operation 212 [1/1] (0.62ns)   --->   "%j_4 = add i2 %j4, 1" [Convolucion/Resources/top.cpp:58]   --->   Operation 212 'add' 'j_4' <Predicate = true> <Delay = 0.62> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_13 : Operation 213 [1/1] (0.00ns)   --->   "br i1 %exitcond, label %.loopexit.loopexit, label %12" [Convolucion/Resources/top.cpp:58]   --->   Operation 213 'br' <Predicate = true> <Delay = 0.00>
-ST_13 : Operation 214 [1/1] (0.87ns)   --->   "%tmp_21 = add i5 %tmp_15, %j4_cast2" [Convolucion/Resources/top.cpp:59]   --->   Operation 214 'add' 'tmp_21' <Predicate = (!exitcond)> <Delay = 0.87> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_13 : Operation 215 [1/1] (0.00ns)   --->   "%tmp_30_cast = sext i5 %tmp_21 to i64" [Convolucion/Resources/top.cpp:59]   --->   Operation 215 'sext' 'tmp_30_cast' <Predicate = (!exitcond)> <Delay = 0.00>
-ST_13 : Operation 216 [1/1] (0.00ns)   --->   "%conv_window_V_addr_5 = getelementptr [9 x i8]* %conv_window_V, i64 0, i64 %tmp_30_cast" [Convolucion/Resources/top.cpp:59]   --->   Operation 216 'getelementptr' 'conv_window_V_addr_5' <Predicate = (!exitcond)> <Delay = 0.00>
-ST_13 : Operation 217 [1/1] (0.00ns)   --->   "%tmp_16_cast = sext i5 %tmp_21 to i32" [Convolucion/Resources/top.cpp:59]   --->   Operation 217 'sext' 'tmp_16_cast' <Predicate = (!exitcond)> <Delay = 0.00>
-ST_13 : Operation 218 [1/1] (0.00ns)   --->   "%tmp_17 = zext i32 %tmp_16_cast to i64" [Convolucion/Resources/top.cpp:59]   --->   Operation 218 'zext' 'tmp_17' <Predicate = (!exitcond)> <Delay = 0.00>
-ST_13 : Operation 219 [2/2] (0.79ns)   --->   "%conv_window_V_load_1 = load i8* %conv_window_V_addr_5, align 1" [Convolucion/Resources/top.cpp:59]   --->   Operation 219 'load' 'conv_window_V_load_1' <Predicate = (!exitcond)> <Delay = 0.79> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.79> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 9> <RAM>
-ST_13 : Operation 220 [1/1] (0.00ns)   --->   "%kernel_addr = getelementptr [9 x i3]* @kernel, i64 0, i64 %tmp_17" [Convolucion/Resources/top.cpp:59]   --->   Operation 220 'getelementptr' 'kernel_addr' <Predicate = (!exitcond)> <Delay = 0.00>
-ST_13 : Operation 221 [2/2] (1.35ns)   --->   "%kernel_load = load i3* %kernel_addr, align 1" [Convolucion/Resources/top.cpp:59]   --->   Operation 221 'load' 'kernel_load' <Predicate = (!exitcond)> <Delay = 1.35> <Core = "ROM_nP">   --->   Core 52 'ROM_nP' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 3> <Depth = 9> <ROM>
-ST_13 : Operation 222 [1/1] (0.00ns)   --->   "br label %.loopexit"   --->   Operation 222 'br' <Predicate = (exitcond)> <Delay = 0.00>
+ST_13 : Operation 196 [1/1] (0.00ns)   --->   "%p_0340_3 = phi i32 [ %conv_result_V, %12 ], [ %p_0340_2, %.preheader.preheader ]"   --->   Operation 196 'phi' 'p_0340_3' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 197 [1/1] (0.00ns)   --->   "%j4 = phi i2 [ %j_4, %12 ], [ 0, %.preheader.preheader ]"   --->   Operation 197 'phi' 'j4' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 198 [1/1] (0.00ns)   --->   "%j4_cast2 = zext i2 %j4 to i5" [Convolucion/Resources/top.cpp:61]   --->   Operation 198 'zext' 'j4_cast2' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 199 [1/1] (0.51ns)   --->   "%exitcond = icmp eq i2 %j4, -1" [Convolucion/Resources/top.cpp:61]   --->   Operation 199 'icmp' 'exitcond' <Predicate = true> <Delay = 0.51> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.85> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 200 [1/1] (0.00ns)   --->   "%empty_21 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 3, i64 3, i64 3)"   --->   Operation 200 'speclooptripcount' 'empty_21' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 201 [1/1] (0.62ns)   --->   "%j_4 = add i2 %j4, 1" [Convolucion/Resources/top.cpp:61]   --->   Operation 201 'add' 'j_4' <Predicate = true> <Delay = 0.62> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 202 [1/1] (0.00ns)   --->   "br i1 %exitcond, label %.loopexit.loopexit, label %12" [Convolucion/Resources/top.cpp:61]   --->   Operation 202 'br' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 203 [1/1] (0.87ns)   --->   "%tmp_21 = add i5 %tmp_15, %j4_cast2" [Convolucion/Resources/top.cpp:62]   --->   Operation 203 'add' 'tmp_21' <Predicate = (!exitcond)> <Delay = 0.87> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 204 [1/1] (0.00ns)   --->   "%tmp_30_cast = sext i5 %tmp_21 to i64" [Convolucion/Resources/top.cpp:62]   --->   Operation 204 'sext' 'tmp_30_cast' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_13 : Operation 205 [1/1] (0.00ns)   --->   "%conv_window_V_addr_5 = getelementptr [9 x i8]* %conv_window_V, i64 0, i64 %tmp_30_cast" [Convolucion/Resources/top.cpp:62]   --->   Operation 205 'getelementptr' 'conv_window_V_addr_5' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_13 : Operation 206 [1/1] (0.00ns)   --->   "%tmp_16_cast = sext i5 %tmp_21 to i32" [Convolucion/Resources/top.cpp:62]   --->   Operation 206 'sext' 'tmp_16_cast' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_13 : Operation 207 [1/1] (0.00ns)   --->   "%tmp_17 = zext i32 %tmp_16_cast to i64" [Convolucion/Resources/top.cpp:62]   --->   Operation 207 'zext' 'tmp_17' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_13 : Operation 208 [2/2] (0.79ns)   --->   "%conv_window_V_load_1 = load i8* %conv_window_V_addr_5, align 1" [Convolucion/Resources/top.cpp:62]   --->   Operation 208 'load' 'conv_window_V_load_1' <Predicate = (!exitcond)> <Delay = 0.79> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.79> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 9> <RAM>
+ST_13 : Operation 209 [1/1] (0.00ns)   --->   "%kernel_addr = getelementptr [9 x i3]* @kernel, i64 0, i64 %tmp_17" [Convolucion/Resources/top.cpp:62]   --->   Operation 209 'getelementptr' 'kernel_addr' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_13 : Operation 210 [2/2] (1.35ns)   --->   "%kernel_load = load i3* %kernel_addr, align 1" [Convolucion/Resources/top.cpp:62]   --->   Operation 210 'load' 'kernel_load' <Predicate = (!exitcond)> <Delay = 1.35> <Core = "ROM_nP">   --->   Core 52 'ROM_nP' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 3> <Depth = 9> <ROM>
+ST_13 : Operation 211 [1/1] (0.00ns)   --->   "br label %.loopexit"   --->   Operation 211 'br' <Predicate = (exitcond)> <Delay = 0.00>
 
 State 14 <SV = 8> <Delay = 4.19>
-ST_14 : Operation 223 [1/2] (0.79ns)   --->   "%conv_window_V_load_1 = load i8* %conv_window_V_addr_5, align 1" [Convolucion/Resources/top.cpp:59]   --->   Operation 223 'load' 'conv_window_V_load_1' <Predicate = true> <Delay = 0.79> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.79> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 9> <RAM>
-ST_14 : Operation 224 [1/1] (0.00ns)   --->   "%extLd16_cast = zext i8 %conv_window_V_load_1 to i11" [Convolucion/Resources/top.cpp:59]   --->   Operation 224 'zext' 'extLd16_cast' <Predicate = true> <Delay = 0.00>
-ST_14 : Operation 225 [1/2] (1.35ns)   --->   "%kernel_load = load i3* %kernel_addr, align 1" [Convolucion/Resources/top.cpp:59]   --->   Operation 225 'load' 'kernel_load' <Predicate = true> <Delay = 1.35> <Core = "ROM_nP">   --->   Core 52 'ROM_nP' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 3> <Depth = 9> <ROM>
-ST_14 : Operation 226 [1/1] (0.00ns)   --->   "%tmp_18_cast = sext i3 %kernel_load to i11" [Convolucion/Resources/top.cpp:59]   --->   Operation 226 'sext' 'tmp_18_cast' <Predicate = true> <Delay = 0.00>
-ST_14 : Operation 227 [1/1] (0.63ns) (grouped into DSP with root node conv_result_V)   --->   "%tmp_19 = mul i11 %tmp_18_cast, %extLd16_cast" [Convolucion/Resources/top.cpp:59]   --->   Operation 227 'mul' 'tmp_19' <Predicate = true> <Delay = 0.63> <Core = "DSP48">   --->   Core 65 'DSP48' <Latency = 0> <II = 1> <Delay = 2.84> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 2> <OutPorts = 1> <Sync> <CReg>
-ST_14 : Operation 228 [1/1] (0.00ns) (grouped into DSP with root node conv_result_V)   --->   "%tmp_19_cast = sext i11 %tmp_19 to i32" [Convolucion/Resources/top.cpp:59]   --->   Operation 228 'sext' 'tmp_19_cast' <Predicate = true> <Delay = 0.00>
-ST_14 : Operation 229 [1/1] (2.20ns) (root node of the DSP)   --->   "%conv_result_V = add i32 %p_0340_3, %tmp_19_cast" [Convolucion/Resources/top.cpp:59]   --->   Operation 229 'add' 'conv_result_V' <Predicate = true> <Delay = 2.20> <Core = "DSP48">   --->   Core 65 'DSP48' <Latency = 0> <II = 1> <Delay = 2.84> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 2> <OutPorts = 1> <Sync> <CReg>
-ST_14 : Operation 230 [1/1] (0.00ns)   --->   "br label %.preheader" [Convolucion/Resources/top.cpp:58]   --->   Operation 230 'br' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 212 [1/2] (0.79ns)   --->   "%conv_window_V_load_1 = load i8* %conv_window_V_addr_5, align 1" [Convolucion/Resources/top.cpp:62]   --->   Operation 212 'load' 'conv_window_V_load_1' <Predicate = true> <Delay = 0.79> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.79> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 9> <RAM>
+ST_14 : Operation 213 [1/1] (0.00ns)   --->   "%extLd16_cast = zext i8 %conv_window_V_load_1 to i11" [Convolucion/Resources/top.cpp:62]   --->   Operation 213 'zext' 'extLd16_cast' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 214 [1/2] (1.35ns)   --->   "%kernel_load = load i3* %kernel_addr, align 1" [Convolucion/Resources/top.cpp:62]   --->   Operation 214 'load' 'kernel_load' <Predicate = true> <Delay = 1.35> <Core = "ROM_nP">   --->   Core 52 'ROM_nP' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 3> <Depth = 9> <ROM>
+ST_14 : Operation 215 [1/1] (0.00ns)   --->   "%tmp_18_cast = sext i3 %kernel_load to i11" [Convolucion/Resources/top.cpp:62]   --->   Operation 215 'sext' 'tmp_18_cast' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 216 [1/1] (0.63ns) (grouped into DSP with root node conv_result_V)   --->   "%tmp_19 = mul i11 %tmp_18_cast, %extLd16_cast" [Convolucion/Resources/top.cpp:62]   --->   Operation 216 'mul' 'tmp_19' <Predicate = true> <Delay = 0.63> <Core = "DSP48">   --->   Core 65 'DSP48' <Latency = 0> <II = 1> <Delay = 2.84> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 2> <OutPorts = 1> <Sync> <CReg>
+ST_14 : Operation 217 [1/1] (0.00ns) (grouped into DSP with root node conv_result_V)   --->   "%tmp_19_cast = sext i11 %tmp_19 to i32" [Convolucion/Resources/top.cpp:62]   --->   Operation 217 'sext' 'tmp_19_cast' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 218 [1/1] (2.20ns) (root node of the DSP)   --->   "%conv_result_V = add i32 %p_0340_3, %tmp_19_cast" [Convolucion/Resources/top.cpp:62]   --->   Operation 218 'add' 'conv_result_V' <Predicate = true> <Delay = 2.20> <Core = "DSP48">   --->   Core 65 'DSP48' <Latency = 0> <II = 1> <Delay = 2.84> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 2> <OutPorts = 1> <Sync> <CReg>
+ST_14 : Operation 219 [1/1] (0.00ns)   --->   "br label %.preheader" [Convolucion/Resources/top.cpp:61]   --->   Operation 219 'br' <Predicate = true> <Delay = 0.00>
+
+State 15 <SV = 7> <Delay = 0.00>
+ST_15 : Operation 220 [1/2] (0.00ns)   --->   "call void @_ssdm_op_Write.axis.volatile.i24P.i3P.i3P.i1P.i1P.i1P.i1P(i24* %out_V_data_V, i3* %out_V_keep_V, i3* %out_V_strb_V, i1* %out_V_user_V, i1* %out_V_last_V, i1* %out_V_id_V, i1* %out_V_dest_V, i24 %tmp_data_V, i3 -1, i3 -1, i1 true, i1 %tmp_last_V, i1 true, i1 true)"   --->   Operation 220 'write' <Predicate = true> <Delay = 0.00> <Core = "AXI4Stream">   --->   Core 5 'AXI4Stream' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+ST_15 : Operation 221 [1/1] (0.00ns)   --->   "br label %.preheader552" [Convolucion/Resources/top.cpp:34]   --->   Operation 221 'br' <Predicate = true> <Delay = 0.00>
 
 
 ============================================================
@@ -376,84 +370,86 @@ Target clock period: 10ns, clock uncertainty: 1.25ns.
 
  <State 1>: 0.755ns
 The critical path consists of the following:
-	multiplexor before 'phi' operation ('i') with incoming values : ('i', Convolucion/Resources/top.cpp:14) [55]  (0.755 ns)
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', Convolucion/Resources/top.cpp:17) [44]  (0.755 ns)
 
  <State 2>: 0.755ns
 The critical path consists of the following:
-	multiplexor before 'phi' operation ('j') with incoming values : ('j', Convolucion/Resources/top.cpp:15) [64]  (0.755 ns)
+	multiplexor before 'phi' operation ('j') with incoming values : ('j', Convolucion/Resources/top.cpp:18) [53]  (0.755 ns)
 
- <State 3>: 1.9ns
+ <State 3>: 2ns
 The critical path consists of the following:
-	fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:5 (Convolucion/Resources/top.cpp:16) [72]  (1.9 ns)
+	fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:19) [61]  (2 ns)
 
  <State 4>: 0.868ns
 The critical path consists of the following:
-	'phi' operation ('i') with incoming values : ('i', Convolucion/Resources/top.cpp:21) [84]  (0 ns)
-	'sub' operation ('tmp_1', Convolucion/Resources/top.cpp:23) [93]  (0.868 ns)
+	'phi' operation ('i') with incoming values : ('i', Convolucion/Resources/top.cpp:24) [73]  (0 ns)
+	'sub' operation ('tmp_1', Convolucion/Resources/top.cpp:26) [82]  (0.868 ns)
 
  <State 5>: 1.67ns
 The critical path consists of the following:
-	'phi' operation ('j') with incoming values : ('j', Convolucion/Resources/top.cpp:22) [96]  (0 ns)
-	'add' operation ('tmp_2', Convolucion/Resources/top.cpp:23) [103]  (0.878 ns)
-	'getelementptr' operation ('conv_window_V_addr_1', Convolucion/Resources/top.cpp:23) [105]  (0 ns)
-	'store' operation (Convolucion/Resources/top.cpp:23) of constant 0 on array 'conv_window.V', Convolucion/Resources/top.cpp:6 [106]  (0.79 ns)
+	'phi' operation ('j') with incoming values : ('j', Convolucion/Resources/top.cpp:25) [85]  (0 ns)
+	'add' operation ('tmp_2', Convolucion/Resources/top.cpp:26) [92]  (0.878 ns)
+	'getelementptr' operation ('conv_window_V_addr_1', Convolucion/Resources/top.cpp:26) [94]  (0 ns)
+	'store' operation (Convolucion/Resources/top.cpp:26) of constant 0 on array 'conv_window.V', Convolucion/Resources/top.cpp:9 [95]  (0.79 ns)
 
  <State 6>: 0.921ns
 The critical path consists of the following:
-	'phi' operation ('row') with incoming values : ('row', Convolucion/Resources/top.cpp:30) [114]  (0 ns)
-	'add' operation ('row', Convolucion/Resources/top.cpp:30) [117]  (0.921 ns)
+	'phi' operation ('row') with incoming values : ('row', Convolucion/Resources/top.cpp:33) [103]  (0 ns)
+	'add' operation ('row', Convolucion/Resources/top.cpp:33) [106]  (0.921 ns)
 
- <State 7>: 5.92ns
+ <State 7>: 3.75ns
 The critical path consists of the following:
-	fifo read on port 'in_V_data_V' (Convolucion/Resources/top.cpp:37) [130]  (2.17 ns)
-	'add' operation ('ret.V', Convolucion/Resources/top.cpp:41) [136]  (0.907 ns)
-	'add' operation of DSP[142] ('ret.V', Convolucion/Resources/top.cpp:41) [140]  (0 ns)
-	'mul' operation of DSP[142] ('mul', Convolucion/Resources/top.cpp:41) [142]  (2.85 ns)
+	axis read on port 'in_V_data_V' (Convolucion/Resources/top.cpp:40) [119]  (0 ns)
+	'add' operation ('ret.V', Convolucion/Resources/top.cpp:44) [125]  (0.907 ns)
+	'add' operation of DSP[131] ('ret.V', Convolucion/Resources/top.cpp:44) [129]  (0 ns)
+	'mul' operation of DSP[131] ('mul', Convolucion/Resources/top.cpp:44) [131]  (2.85 ns)
 
  <State 8>: 1.75ns
 The critical path consists of the following:
-	'phi' operation ('i') with incoming values : ('i', Convolucion/Resources/top.cpp:43) [146]  (0 ns)
-	'sub' operation ('tmp_8', Convolucion/Resources/top.cpp:45) [155]  (0.868 ns)
-	'add' operation ('tmp_9', Convolucion/Resources/top.cpp:48) [156]  (0.878 ns)
+	'phi' operation ('i') with incoming values : ('i', Convolucion/Resources/top.cpp:46) [135]  (0 ns)
+	'sub' operation ('tmp_8', Convolucion/Resources/top.cpp:48) [144]  (0.868 ns)
+	'add' operation ('tmp_9', Convolucion/Resources/top.cpp:51) [145]  (0.878 ns)
 
  <State 9>: 2.29ns
 The critical path consists of the following:
-	'phi' operation ('j') with incoming values : ('j', Convolucion/Resources/top.cpp:45) [161]  (0 ns)
-	'add' operation ('j', Convolucion/Resources/top.cpp:45) [164]  (0.625 ns)
-	'add' operation ('tmp_18', Convolucion/Resources/top.cpp:45) [172]  (0.878 ns)
-	'getelementptr' operation ('conv_window_V_addr_4', Convolucion/Resources/top.cpp:45) [174]  (0 ns)
-	'load' operation ('conv_window_V_load', Convolucion/Resources/top.cpp:45) on array 'conv_window.V', Convolucion/Resources/top.cpp:6 [175]  (0.79 ns)
+	'phi' operation ('j') with incoming values : ('j', Convolucion/Resources/top.cpp:48) [150]  (0 ns)
+	'add' operation ('j', Convolucion/Resources/top.cpp:48) [153]  (0.625 ns)
+	'add' operation ('tmp_18', Convolucion/Resources/top.cpp:48) [161]  (0.878 ns)
+	'getelementptr' operation ('conv_window_V_addr_4', Convolucion/Resources/top.cpp:48) [163]  (0 ns)
+	'load' operation ('conv_window_V_load', Convolucion/Resources/top.cpp:48) on array 'conv_window.V', Convolucion/Resources/top.cpp:9 [164]  (0.79 ns)
 
  <State 10>: 1.58ns
 The critical path consists of the following:
-	'load' operation ('conv_window_V_load', Convolucion/Resources/top.cpp:45) on array 'conv_window.V', Convolucion/Resources/top.cpp:6 [175]  (0.79 ns)
-	'store' operation (Convolucion/Resources/top.cpp:45) of variable 'conv_window_V_load', Convolucion/Resources/top.cpp:45 on array 'conv_window.V', Convolucion/Resources/top.cpp:6 [176]  (0.79 ns)
+	'load' operation ('conv_window_V_load', Convolucion/Resources/top.cpp:48) on array 'conv_window.V', Convolucion/Resources/top.cpp:9 [164]  (0.79 ns)
+	'store' operation (Convolucion/Resources/top.cpp:48) of variable 'conv_window_V_load', Convolucion/Resources/top.cpp:48 on array 'conv_window.V', Convolucion/Resources/top.cpp:9 [165]  (0.79 ns)
 
- <State 11>: 2.69ns
+ <State 11>: 2.79ns
 The critical path consists of the following:
-	'load' operation ('tmp.V', Convolucion/Resources/top.cpp:49) on array 'conv_window.V', Convolucion/Resources/top.cpp:6 [199]  (0.79 ns)
-	fifo write on port 'line_buffer[1].V.V', Convolucion/Resources/top.cpp:5 (Convolucion/Resources/top.cpp:49) [205]  (1.9 ns)
+	'load' operation ('tmp.V', Convolucion/Resources/top.cpp:52) on array 'conv_window.V', Convolucion/Resources/top.cpp:9 [188]  (0.79 ns)
+	fifo write on port 'line_buffer[0].V.V', Convolucion/Resources/top.cpp:8 (Convolucion/Resources/top.cpp:52) [191]  (2 ns)
 
- <State 12>: 4.13ns
+ <State 12>: 1.96ns
 The critical path consists of the following:
-	'phi' operation ('p_0340_2', Convolucion/Resources/top.cpp:59) with incoming values : ('p_load') ('conv_result.V', Convolucion/Resources/top.cpp:59) [215]  (0 ns)
-	'icmp' operation ('icmp', Convolucion/Resources/top.cpp:62) [254]  (0.988 ns)
-	'select' operation ('p_0340_2_41', Convolucion/Resources/top.cpp:62) [255]  (0.525 ns)
-	'select' operation ('tmp_4', Convolucion/Resources/top.cpp:63) [258]  (0.445 ns)
-	fifo write on port 'out_V_data_V' [262]  (2.17 ns)
+	'phi' operation ('p_0340_2', Convolucion/Resources/top.cpp:62) with incoming values : ('p_load') ('conv_result.V', Convolucion/Resources/top.cpp:62) [204]  (0 ns)
+	'icmp' operation ('icmp', Convolucion/Resources/top.cpp:65) [243]  (0.988 ns)
+	'select' operation ('p_0340_2_22', Convolucion/Resources/top.cpp:65) [244]  (0.525 ns)
+	'select' operation ('tmp_4', Convolucion/Resources/top.cpp:66) [247]  (0.445 ns)
 
  <State 13>: 2.23ns
 The critical path consists of the following:
-	'phi' operation ('j') with incoming values : ('j', Convolucion/Resources/top.cpp:58) [229]  (0 ns)
-	'add' operation ('tmp_21', Convolucion/Resources/top.cpp:59) [236]  (0.878 ns)
-	'getelementptr' operation ('kernel_addr', Convolucion/Resources/top.cpp:59) [243]  (0 ns)
-	'load' operation ('kernel_load', Convolucion/Resources/top.cpp:59) on array 'kernel' [244]  (1.35 ns)
+	'phi' operation ('j') with incoming values : ('j', Convolucion/Resources/top.cpp:61) [218]  (0 ns)
+	'add' operation ('tmp_21', Convolucion/Resources/top.cpp:62) [225]  (0.878 ns)
+	'getelementptr' operation ('kernel_addr', Convolucion/Resources/top.cpp:62) [232]  (0 ns)
+	'load' operation ('kernel_load', Convolucion/Resources/top.cpp:62) on array 'kernel' [233]  (1.35 ns)
 
  <State 14>: 4.2ns
 The critical path consists of the following:
-	'load' operation ('kernel_load', Convolucion/Resources/top.cpp:59) on array 'kernel' [244]  (1.35 ns)
-	'mul' operation of DSP[248] ('tmp_19', Convolucion/Resources/top.cpp:59) [246]  (0.638 ns)
-	'add' operation of DSP[248] ('conv_result.V', Convolucion/Resources/top.cpp:59) [248]  (2.21 ns)
+	'load' operation ('kernel_load', Convolucion/Resources/top.cpp:62) on array 'kernel' [233]  (1.35 ns)
+	'mul' operation of DSP[237] ('tmp_19', Convolucion/Resources/top.cpp:62) [235]  (0.638 ns)
+	'add' operation of DSP[237] ('conv_result.V', Convolucion/Resources/top.cpp:62) [237]  (2.21 ns)
+
+ <State 15>: 0ns
+The critical path consists of the following:
 
 
 ============================================================
@@ -478,6 +474,7 @@ N/A
 	State 12
 	State 13
 	State 14
+	State 15
 
 
 ============================================================

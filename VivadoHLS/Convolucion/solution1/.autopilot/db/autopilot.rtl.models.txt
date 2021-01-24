@@ -2,6 +2,7 @@ img_filter_am_addcud
 img_filter_mac_mudEe
 img_filter_kernel
 img_filter_conv_wbkb
-fifo_w8_d480_A
-fifo_w8_d480_A
+fifo_w8_d640_A
+fifo_w8_d640_A
+img_filter_CONTROL_BUS_s_axi
 img_filter
